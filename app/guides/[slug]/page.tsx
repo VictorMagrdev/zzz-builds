@@ -1,7 +1,7 @@
 import type { Metadata, ResolvingMetadata } from 'next'
  
 type Props = {
-  params: { id: string }
+  params: { slug: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
  
@@ -11,11 +11,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
  
   return {
-    title: params.id,
+    title:`Guide ${params.slug}`,
     description: "this is a guide",
   }
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-    return <div>My Guide: {params.slug}</div>
+export default function Guides({ params }: { params: { slug: string } }) {
+    return (<>this is the Guides</>);
+
   }

@@ -1,7 +1,7 @@
 import type { Metadata, ResolvingMetadata } from 'next'
  
 type Props = {
-  params: { id: string }
+  params: { slug: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
  
@@ -11,7 +11,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
  
   return {
-    title: params.id,
+    title: `Tier list ${params.slug}`,
     description: "this is a tier list",
   }
 }
