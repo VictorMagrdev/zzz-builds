@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import TableTier from "./components/table-tier";
 
 export const metadata: Metadata= {
   title: 'Tier List',
@@ -8,7 +9,8 @@ export const metadata: Metadata= {
 
 export default function TierList() {
     return (
-      <>This is the Tier list</>
+      <>
+      </>
     );
   }
   
