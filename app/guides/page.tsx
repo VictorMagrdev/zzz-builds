@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Button from "../components/button";
 
 export const metadata: Metadata= {
   title: 'Guides',
@@ -7,7 +8,7 @@ export const metadata: Metadata= {
 
 export default function Guides() {
     return (
-      <>this is the Guides</>
+      <><Button></Button></>
     );
   }
   

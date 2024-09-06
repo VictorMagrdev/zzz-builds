@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import TableTier from "./components/table-tier";
 
 export const metadata: Metadata= {
   title: 'Tier List',
@@ -8,7 +9,21 @@ export const metadata: Metadata= {
 
 export default function TierList() {
     return (
-      <>This is the Tier list</>
+      <div className="flex flex-col" >
+      <div className="p-8 place-self-center">
+        <input type="text" name="" id="" />
+      </div>
+      
+      <div className='flex items-stretch'>
+      <div className='p-8'>
+      <TableTier/>
+      </div>
+      <div className="place-self-center">
+      <button className="h-[100px] w-[100px] rounded-full bg-gray-200">+</button>
+
+      </div>
+      </div>
+      </div>
     );
   }
   
