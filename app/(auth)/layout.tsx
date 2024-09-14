@@ -1,17 +1,16 @@
 import './layout.css'
 
 export default function AuthLayout({
- children
+    children
 }: {
- children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <main className='auth'>
-        <section></section>
-      <section>
-        {children}
-      </section>
-    </main>
-      
-  );
+    return (
+        <main className='auth'>
+            <section></section>
+        <section>
+            {children}
+        </section>
+        </main>
+    );
 }
