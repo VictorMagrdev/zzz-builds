@@ -1,5 +1,9 @@
+import { Card } from '@/components/organisms/Card'
+
 export default function Home() {
   return (
-    <>this is the index</>
+    <>
+    <h1>this is the index</h1>
+    </>
   );
 }

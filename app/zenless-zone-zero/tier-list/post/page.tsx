@@ -1,16 +1,18 @@
 import React from 'react'
-import DropDown from '../components/drop-down'
-import TableTierPost from '../components/table-tier-post'
+import DropDown from '../../../../components/organisms/drop-down'
+import TableTierPost from '../../../../components/molecules/table-tier-post'
 
 export default function Post() {
   return (
     <div className='px-8'>
-      <div className='flex items-stretch'>
-        <div className='space-y-4'>
-        <input id='name'  title='name' type='text' className='my-8 block mb-2 text-sm font-medium text-gray-900 dark:text-white'/>
-        <TableTierPost/>
+      <div className='flex flex-row '>
+        <div className='space-y-4 basis-1/2'>
+          <form action="" method="post">
+          <input id='name' placeholder='name'  title='name' type='text' className='my-8 block mb-2 text-sm font-medium text-gray-900 dark:text-white'/>
+          </form>
+          <TableTierPost/>
         </div>
-        <div className='self-center'>
+        <div className='self-center basis-1/4'>
         <DropDown />
         </div>
       </div>
