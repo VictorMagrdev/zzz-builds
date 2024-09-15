@@ -4,9 +4,8 @@ import { useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
 import { useFormState } from 'react-dom';
 import { login } from '@/other/actions';
-import { loginSchema } from '@/other/schema';
+import { loginSchema } from '@/other/schemas';
 
-import React from 'react'
 import './style.css'
 
 

@@ -4,25 +4,27 @@
 import { redirect } from 'next/navigation';
 
 import { parseWithZod } from '@conform-to/zod';
-import { loginSchema } from './schema';
+import { loginSchema, RegisterSchema } from './schemas';
 
 
 export async function login(prevState: unknown, formData: FormData) {
-
   const submission = parseWithZod(formData, {
-
     schema: loginSchema,
-
   });
 
+  if (submission.status !== 'success') {
+    return submission.reply();
+  }
+  redirect('/account');
+}
+
+export async function register(prevState: unknown, formData: FormData) {
+  const submission = parseWithZod(formData, {
+    schema: RegisterSchema,
+  });
 
   if (submission.status !== 'success') {
-
     return submission.reply();
-
   }
-
-
-  redirect('/dashboard');
-
+  redirect('/account');
 }
