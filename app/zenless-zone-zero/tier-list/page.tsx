@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/Header";
 
 export const metadata: Metadata= {
   title: 'Tier List',
@@ -10,7 +9,6 @@ export const metadata: Metadata= {
 export default function TierList() {
     return (
       <div className="flex flex-col" >
-        <Header/>
       <div className="p-8 place-self-center">
         <input type="text" placeholder="seach tier list" name="" id="" />
       </div>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/molecules/Header";
 import GuideArticle from "@/components/layout/GuideArticle";
 
 export const metadata: Metadata= {
@@ -10,7 +9,6 @@ export const metadata: Metadata= {
 export default function Guides() {
     return (
       <>
-        <Header/>
         <main className="flex max-w-5xl mx-auto p-4 mt-10 bg-blue-700">
           <div className="w-3/4 space-y-6">
             <section id="filters" className="p-4 bg-blue-900 rounded-lg">
