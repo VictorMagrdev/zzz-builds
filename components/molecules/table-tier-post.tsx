@@ -1,7 +1,7 @@
 'use client'
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 
-import { thisIsMyData } from 'myPlace'
+// import { thisIsMyData } from 'myPlace'
 
 enum TierColums {
     SS = "S+",
@@ -13,16 +13,16 @@ enum TierColums {
 
 export default function TableTierPost() {
 
-  const [data, setData] = useState()
-  useEffect(() => {
-    setTimeout(() => {
-      setData(thisIsMyData)
-    }, 2000);
-  }, [])
+  // const [data, setData] = useState()
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setData(thisIsMyData)
+  //   }, 2000);
+  // }, [])
 
   return (
-    <div className="grid grid-col-1 grid-rows-4 gap-8 space-y-4 bg-indigo-800 rounded-lg ">
-      <div className='p-4 size-full'>
+    <div className="grid grid-col-1 gap-8 space-y-4 bg-indigo-800 rounded-lg mx-auto max-h-lvh max-w-screen-lg my-auto">
+      <div className='p-4'>
       <div className="grid grid-flow-col grid-cols-2 gap-8 border w-96 border-y-indigo-50 border-x-indigo-700 ">
       <div className='place-items-start '>
         <div className='w-[50px] h-[75px] skew-y-12 bg-red-600 place-self-center rounded-lg flex justify-center content-center items-center'>

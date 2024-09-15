@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import TableTier from "../../../components/table-tier";
 import Header from "@/components/layout/Header";
 
 export const metadata: Metadata= {
@@ -18,7 +17,6 @@ export default function TierList() {
       
       <div className='flex items-stretch'>
       <div className='p-8'>
-      <TableTier/>
       </div>
       <div className="place-self-center">
       <button className="h-[100px] w-[100px] rounded-full bg-gray-200">+</button>
