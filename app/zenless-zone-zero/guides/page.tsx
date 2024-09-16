@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import GuideArticle from "@/components/layout/GuideArticle";
+import GuideArticle from "@/components/molecules/GuideArticle";
 import { bg_blue_30 } from "@/components/tokens";
+import { bg_blue_60 } from "@/components/tokens";
 import Filter from "@/components/molecules/Filter";
 
 export const metadata: Metadata= {
@@ -11,12 +12,10 @@ export const metadata: Metadata= {
 export default function Guides() {
     return (
       <>
-        <main className={`flex max-w-5xl mx-auto p-4 mt-4 ${bg_blue_30}`}>
+        <main className={`flex max-w-5xl mx-auto h-screen p-4 mt-4 ${bg_blue_30}`}>
           <div className="w-3/4 space-y-6">
-            
             <Filter/>
-
-            <section id="guide-list" className="space-y-4">
+            <section id="guide-list" className="space-y-5">
               <GuideArticle
                 title="Ellen Joe Guide"
                 author="Shark"
@@ -36,7 +35,7 @@ export default function Guides() {
             </section>
           </div>
 
-          <aside id="news" className="ml-4 w-1/4 p-4 bg-gray-800 rounded-lg">
+          <aside id="news" className={`ml-4 w-1/4 p-4 ${bg_blue_60} rounded-lg max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh]`}>
             <h2 className="text-white text-xl mb-4">NEWS</h2>
             <ul className="space-y-4 text-gray-300">
               <li><p>New Version 1.2 - Release Date Revealed!!</p></li>
