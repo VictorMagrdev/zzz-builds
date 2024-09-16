@@ -1,8 +1,13 @@
 "use strict";
 exports.__esModule = true;
+exports.metadata = void 0;
 var drop_down_1 = require("@/components/organisms/drop-down");
 var table_tier_post_1 = require("@/components/molecules/table-tier-post");
 var tokens_1 = require("@/components/tokens");
+exports.metadata = {
+    title: 'Tier List Post',
+    description: 'Tier List dashboard for create a post'
+};
 function Post() {
     return (React.createElement("div", { className: tokens_1.bg_blue_60 },
         React.createElement("div", { className: 'flex justify-center' },

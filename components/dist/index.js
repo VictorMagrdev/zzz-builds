@@ -11,3 +11,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 exports.__esModule = true;
 __exportStar(require("@/components/molecules/table-tier-post"), exports);
+__exportStar(require("@/components/molecules/ProxyInfo"), exports);
