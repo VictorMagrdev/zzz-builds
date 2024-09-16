@@ -9,7 +9,7 @@ exports.metadata = {
     description: 'Tier List dashboard for create a post'
 };
 function Post() {
-    return (React.createElement("div", { className: tokens_1.bg_blue_60 },
+    return (React.createElement("div", { className: "min-h-screen " + tokens_1.bg_blue_60 },
         React.createElement("div", { className: 'flex justify-center' },
             React.createElement("form", { action: "", method: "post" },
                 React.createElement("input", { className: " placeholder:text-slate-900 block " + tokens_1.bg_blue_10 + " border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm\" placeholder=\"Name\" type=\"text\" name=\"name" }))),
