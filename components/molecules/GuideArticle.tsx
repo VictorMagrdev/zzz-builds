@@ -7,9 +7,9 @@ interface GuideArticleProps {
 
 const GuideArticle: React.FC<GuideArticleProps> = ({ title, author }) => {
   return (
-    <article className='border-solid border-2 border-gray-600'>
-      <h2>{title}</h2>
-      <p>By {author}</p>
+    <article className='border-solid border-2 border-white rounded-sm'>
+      <h2 className='text-white'>{title}</h2>
+      <p className='text-white'>By {author}</p>
     </article>
   );
 };

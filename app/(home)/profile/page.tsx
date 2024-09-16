@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/Header";
 import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
 import { ProxyInfo } from "@/components";
 import Ben from "@/assets/images/Ben.png"
@@ -13,7 +12,6 @@ export const metadata: Metadata= {
 export default function Profile() {
     return (
         <div className={`flex flex-col ${bg_blue_60} space-y-4 min-h-screen`} >
-            <Header/>
             <div className="m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4">
                 <ProxyInfo
                     imagen={Ben}
