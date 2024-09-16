@@ -6,6 +6,7 @@ var zod_1 = require("@conform-to/zod");
 var react_dom_1 = require("react-dom");
 var actions_1 = require("@/other/actions");
 var schemas_1 = require("@/other/schemas");
+var tokens_1 = require("@/components/tokens");
 function RegisterForm() {
     var _a = react_dom_1.useFormState(actions_1.register, undefined), lastResult = _a[0], action = _a[1];
     var _b = react_1.useForm({
@@ -17,7 +18,7 @@ function RegisterForm() {
         shouldValidate: 'onBlur',
         shouldRevalidate: 'onInput'
     }), form = _b[0], fields = _b[1];
-    return (React.createElement("form", { id: form.id, onSubmit: form.onSubmit, action: action, noValidate: true, className: "flex flex-col p-5 rounded-2xl border border-gray-400" },
+    return (React.createElement("form", { id: form.id, onSubmit: form.onSubmit, action: action, noValidate: true, className: "flex flex-col p-5 rounded-2xl " + tokens_1.bg_blue_30 },
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { htmlFor: "user" }, "Name"),
             React.createElement("input", { className: "text-black", id: "name", type: "text", key: fields.name.key, name: fields.name.name, defaultValue: fields.name.initialValue }),
