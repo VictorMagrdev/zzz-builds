@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import Header from "@/components/layout/Header";
 import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
 
 import Link from "next/link";
@@ -15,7 +14,6 @@ export const metadata: Metadata= {
 export default function TierList() {
     return (
       <div className={`flex flex-col min-h-screen ${bg_blue_60}`} >
-        <Header/>
       <div className="p-8 place-self-center flex justify-center">
         <form action="" method="post">
         <input className={` placeholder:text-slate-900 block ${bg_blue_10} border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm" placeholder="Seach" type="seach" name="seach"`}/>

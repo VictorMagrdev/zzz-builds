@@ -1,14 +1,12 @@
-
-form{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid grey;
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #03318c;
 }
 
-form div{
-    display: flex;
-    flex-direction: column;
+form div {
+  display: flex;
+  flex-direction: column;
 }
-

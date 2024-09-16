@@ -5,7 +5,7 @@ import { parseWithZod } from '@conform-to/zod';
 import { useFormState } from 'react-dom';
 import { register } from '@/other/actions';
 import { RegisterSchema } from '@/other/schemas';
-
+import { bg_blue_30 } from '@/components/tokens';
 export default function RegisterForm() {
     const [lastResult, action] = useFormState(register, undefined);
     const [form, fields] = useForm({
@@ -18,7 +18,7 @@ export default function RegisterForm() {
     });
 
     return (
-        <form id={form.id} onSubmit={form.onSubmit} action={action} noValidate className="flex flex-col p-5 rounded-2xl border border-gray-400">
+        <form id={form.id} onSubmit={form.onSubmit} action={action} noValidate className={`flex flex-col p-5 rounded-2xl ${bg_blue_30}`}>
         <div className="flex flex-col">
             <label htmlFor="user">Name</label>
             <input

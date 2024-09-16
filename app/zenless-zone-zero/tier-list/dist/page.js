@@ -1,15 +1,14 @@
 "use strict";
 exports.__esModule = true;
 exports.metadata = void 0;
-var Header_1 = require("@/components/layout/Header");
 var tokens_1 = require("@/components/tokens");
+var link_1 = require("next/link");
 exports.metadata = {
     title: 'Tier List',
     description: 'Tier List description'
 };
 function TierList() {
     return (React.createElement("div", { className: "flex flex-col min-h-screen " + tokens_1.bg_blue_60 },
-        React.createElement(Header_1["default"], null),
         React.createElement("div", { className: "p-8 place-self-center flex justify-center" },
             React.createElement("form", { action: "", method: "post" },
                 React.createElement("input", { className: " placeholder:text-slate-900 block " + tokens_1.bg_blue_10 + " border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm\" placeholder=\"Seach\" type=\"seach\" name=\"seach\"" }))),
@@ -81,6 +80,6 @@ function TierList() {
                             React.createElement("span", { className: "inline-block " + tokens_1.bg_blue_10 + " rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" }, "#travel"),
                             React.createElement("span", { className: "inline-block " + tokens_1.bg_blue_10 + " rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" }, "#winter"))))),
             React.createElement("div", { className: "place-self-end" },
-                React.createElement("button", { className: "h-[50px] w-[50px] rounded-full " + tokens_1.bg_blue_10 + " p-8 m-8 content-center items-center flex justify-center" }, "+")))));
+                React.createElement(link_1["default"], { href: "/zenless-zone-zero/tier-list/post", className: "h-[50px] w-[50px] rounded-full " + tokens_1.bg_blue_10 + " p-8 m-8 content-center items-center flex justify-center" }, "+")))));
 }
 exports["default"] = TierList;
