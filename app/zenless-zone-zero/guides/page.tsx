@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import GuideArticle from "@/components/layout/GuideArticle";
+import { bg_blue_30 } from "@/components/tokens";
+import Filter from "@/components/molecules/Filter";
 
 export const metadata: Metadata= {
   title: 'Guides',
@@ -9,33 +11,10 @@ export const metadata: Metadata= {
 export default function Guides() {
     return (
       <>
-        <main className="flex max-w-5xl mx-auto p-4 mt-10 bg-blue-700">
+        <main className={`flex max-w-5xl mx-auto p-4 mt-4 ${bg_blue_30}`}>
           <div className="w-3/4 space-y-6">
-            <section id="filters" className="p-4 bg-blue-900 rounded-lg">
-              <fieldset className="flex items-center space-x-3 h-14 rounded-lg bg-blue-950 p-4">
-                <label className="text-white">Character:</label>
-                <input className="w-1/3 p-2 text-sm text-gray-900 rounded" type="text" id="character-search" placeholder="Search..."/>
-                <a href="#" className="text-blue-400 hover:underline">View Characters &gt;&gt;</a>
-              </fieldset>
-              
-              <nav className="mt-4">
-                <p className="text-white">Type of guide:</p>
-                <ul className="flex space-x-3 mt-2">
-                  <li ><button className="px-3 py-1 bg-blue-600 rounded text-white">Characters</button></li>
-                  <li ><button className="px-3 py-1 bg-blue-600 rounded text-white">Update</button></li>
-                  <li ><button className="px-3 py-1 bg-blue-600 rounded text-white">Mission</button></li>
-                  <li ><button className="px-3 py-1 bg-blue-600 rounded text-white">Farming</button></li>
-                </ul>
-              </nav>
-
-              <section className="mt-4">
-                <p className="text-white">Sort:</p>
-                <ul className="flex space-x-3 mt-2">
-                  <li><button className="px-3 py-1 bg-blue-600 rounded text-white">Newest</button></li>
-                  <li><button className="px-3 py-1 bg-gray-600 rounded text-white">Top Rated</button></li>
-                </ul>
-              </section>
-            </section>
+            
+            <Filter/>
 
             <section id="guide-list" className="space-y-4">
               <GuideArticle

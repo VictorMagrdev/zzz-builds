@@ -18,9 +18,9 @@ export default function Header() {
               />
             </Link>
             <ul className='flex space-x-20 text-xl'>
-                <Link href="#" className='text-white hover:text-gray-400'>Guides</Link>
-                <Link href="#" className='text-white hover:text-gray-400'>Tier List</Link>
-                <Link href="#" className='text-white hover:text-gray-400'>News</Link>
+                <Link href="#" className='text-white hover:text-gray-400 transition-colors'>Guides</Link>
+                <Link href="#" className='text-white hover:text-gray-400 transition-colors'>Tier List</Link>
+                <Link href="#" className='text-white hover:text-gray-400 transition-colors'>News</Link>
             </ul>
         </nav>
     </header>
