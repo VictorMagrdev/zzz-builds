@@ -10,10 +10,10 @@ export const metadata: Metadata= {
 
 export default function Post() {
   return (
-    <div className={`min-h-screen ${bg_blue_60}`}>
+    <div className={`h-screen ${bg_blue_60}`}>
       <div className='flex justify-center' >
         <form action="" method="post">
-        <input className={` placeholder:text-slate-900 block ${bg_blue_10} border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm" placeholder="Name" type="text" name="name`}/>
+        <input className={` placeholder:text-slate-500 block ${bg_blue_10} border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm" placeholder="Name" type="text" name="name`} placeholder='Search...'/>
         </form>
       </div>
       

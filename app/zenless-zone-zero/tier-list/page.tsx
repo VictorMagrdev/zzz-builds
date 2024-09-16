@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+
 import Header from "@/components/layout/Header";
 import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
+
+import Link from "next/link";
+
 
 export const metadata: Metadata= {
   title: 'Tier List',
@@ -128,8 +132,7 @@ export default function TierList() {
         </div>
       </div>
       <div className="place-self-end">
-      <button className={`h-[50px] w-[50px] rounded-full ${bg_blue_10} p-8 m-8 content-center items-center flex justify-center`}>+</button>
-
+      <Link href="/zenless-zone-zero/tier-list/post" className={`h-[50px] w-[50px] rounded-full ${bg_blue_10} p-8 m-8 content-center items-center flex justify-center`}>+</Link>
       </div>
       </div>
       </div>
