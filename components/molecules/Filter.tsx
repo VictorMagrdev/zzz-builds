@@ -19,7 +19,7 @@ export default function Filter() {
             <a href="#" className="text-blue-400 hover:underline">View Characters: &gt;&gt;</a>
             </fieldset>
             
-            <nav className="mt-4">
+            <nav className={`flex items-center space-x-3 h-14 rounded-lg ${bg_blue_30} p-4 mt-4`}>
             <p className="text-white">Type of guide:</p>
             <ul className="flex space-x-3 mt-2">
                 <li >
@@ -37,11 +37,15 @@ export default function Filter() {
             </ul>
             </nav>
 
-            <section className="mt-4">
+            <section className={`flex items-center space-x-3 h-14 rounded-lg ${bg_blue_30} p-4 mt-4`}>
             <p className="text-white">Sort:</p>
             <ul className="flex space-x-3 mt-2">
-                <li><button className="px-3 py-1 bg-blue-600 rounded text-white">Newest</button></li>
-                <li><button className="px-3 py-1 bg-gray-600 rounded text-white">Top Rated</button></li>
+                <li >
+                    <FilterButton label="Newest" onClick={() => handleFilterClick('Newest')}/>
+                </li>
+                <li >
+                    <FilterButton label="Top Rated" onClick={() => handleFilterClick('Top Rated')}/>
+                </li>
             </ul>
             </section>
         </section>
