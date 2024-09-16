@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
 import { ProxyInfo } from "@/components";
+import Ben from "@/assets/images/Ben.png"
 
 export const metadata: Metadata= {
   title: 'Profile',
@@ -15,12 +16,12 @@ export default function Profile() {
             <Header/>
             <div className="m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4">
                 <ProxyInfo
-                    imagen="/assets/images/Ben.png"
+                    imagen={Ben}
                     username="Usuario123"
                     nivel={5}
                     uid="12345"
                 />
-                <div className={`rounded-lg max-w-md p-8 ${bg_blue_30} space-y-2 font-mono w-96 min-h-80`}>
+                <div className={`rounded-lg max-w-md p-8 ${bg_blue_30} space-y-2 font-mono w-96 min-h-80 text-white`}>
                     <div><a href="#">my tier list {">"}</a></div>
                     <hr/>
                     <div><a href="#">my news {">"}</a></div>
@@ -30,10 +31,10 @@ export default function Profile() {
                     <div><a href="#">account settings</a></div>
                     <hr/>
                 </div>
-                <div className="place-self-start col-span-2 ">
+                <div className="place-self-start col-span-2 text-white">
                     <div>social links</div>
                 </div>
-                <div className="place-self-start col-span-2 ">
+                <div className="place-self-start col-span-2 text-white">
                     <div>proxy info</div>
                 </div>
             </div>

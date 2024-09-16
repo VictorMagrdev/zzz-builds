@@ -17,10 +17,10 @@ export function ProxyInfo ({ imagen, username, nivel, uid }:ProxyInfoProps) {
             alt={`Avatar of ${username}`}
             width={96}
             height={96}
-            className="w-24 h-24 rounded-full object-cover mr-4"
+            className="w-24 h-24 mb-2 border-2 rounded-full object-cover mr-4"
         />
             <div className={`${bg_blue_60} rounded-[25px] font-mono`}>
-                <div className="p-2">
+                <div className="p-2 text-white">
                     <h2>{username}</h2>
                     <p>Nivel: {nivel}</p>
                     <p>UID: {uid}</p>
