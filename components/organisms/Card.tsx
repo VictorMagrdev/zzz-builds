@@ -12,7 +12,7 @@ export function Card({ character }: CardProps) {
       <Link href={`/${character.id}`}>
         <Image
           className="rounded-md"
-          src={character.imagen} 
+          src={`http://localhost:300/imagenes/${character.imagen}`}
           alt={character.nombre}
           width={250}
           height={200}
