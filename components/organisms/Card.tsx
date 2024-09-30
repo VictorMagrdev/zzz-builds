@@ -12,7 +12,7 @@ export function Card({ character }: CardProps) {
       <Link href={`/zenless-zone-zero/characters/${character.id}`} className="relative block">
         <Image
           className="rounded-md transition-transform duration-300 transform hover:scale-105"
-          src={`http://localhost:300/imagenes/${character.imagen}`}
+          src={`http://localhost:301/imagenes/${character.imagen}`}
           alt={character.nombre}
           width={250}
           height={200}
