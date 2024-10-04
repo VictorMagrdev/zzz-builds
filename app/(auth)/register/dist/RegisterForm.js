@@ -1,11 +1,17 @@
 'use client';
 "use strict";
 exports.__esModule = true;
+<<<<<<< Updated upstream
 var react_1 = require("@conform-to/react");
 var zod_1 = require("@conform-to/zod");
 var react_dom_1 = require("react-dom");
 var actions_1 = require("@/other/actions");
 var schemas_1 = require("@/other/schemas");
+=======
+var react_hook_form_1 = require("react-hook-form");
+var zod_1 = require("@hookform/resolvers/zod");
+var schemas_1 = require("@/validators/schemas");
+>>>>>>> Stashed changes
 var tokens_1 = require("@/components/tokens");
 function RegisterForm() {
     var _a = react_dom_1.useFormState(actions_1.register, undefined), lastResult = _a[0], action = _a[1];
