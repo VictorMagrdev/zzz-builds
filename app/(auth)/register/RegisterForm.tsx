@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { RegisterSchema } from '@/other/schemas';
 import { z } from 'zod';
 import { bg_blue_30 } from '@/components/tokens';
+
 import { registerUser, loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
 import { NextRouter } from 'next/router';
@@ -21,6 +22,7 @@ export default function RegisterForm({ router }: RegisterFormProps) {
         mode: 'onBlur',
         reValidateMode: 'onChange',
     });
+
 
     const { login } = useStore();
 
@@ -39,6 +41,7 @@ export default function RegisterForm({ router }: RegisterFormProps) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate className={`flex flex-col p-5 rounded-2xl ${bg_blue_30}`}>
             <div className="flex flex-col">
+
                 <label className="text-white mb-1" htmlFor="name">Name</label>
                 <input
                     className="text-black"
@@ -50,6 +53,7 @@ export default function RegisterForm({ router }: RegisterFormProps) {
             </div>
 
             <div className="flex flex-col">
+
                 <label className="text-white mb-1" htmlFor="email">Email</label>
                 <input
                     className="text-black"
@@ -61,6 +65,7 @@ export default function RegisterForm({ router }: RegisterFormProps) {
             </div>
 
             <div className="flex flex-col">
+
                 <label className="text-white mb-1" htmlFor="user">User</label>
                 <input
                     className="text-black"
@@ -72,7 +77,9 @@ export default function RegisterForm({ router }: RegisterFormProps) {
             </div>
 
             <div className="flex flex-col">
+
                 <label className="text-white mb-1" htmlFor="password">Password</label>
+
                 <input
                     className="text-black"
                     id="password" 
@@ -83,7 +90,9 @@ export default function RegisterForm({ router }: RegisterFormProps) {
             </div>
 
             <div className="flex flex-col">
+
                 <label className="text-white mb-1" htmlFor="confirm_password">Confirm Password</label>
+
                 <input
                     className="text-black"
                     id="confirm_password" 
@@ -94,6 +103,7 @@ export default function RegisterForm({ router }: RegisterFormProps) {
             </div>
 
             <div className="flex flex-col">
+
                 <input className="text-white mb-1" type="submit" value="Register" />
             </div>
         </form>

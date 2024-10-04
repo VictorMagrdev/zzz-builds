@@ -1,4 +1,5 @@
 
+
 const API = 'http://localhost:301/api/v1';
 
 export const getAllCharacters = async () => {
@@ -42,3 +43,4 @@ export const loginUser = async (email: string, password: string) => {
 
     return await response.json();
 };
+
