@@ -40,7 +40,7 @@ exports.__esModule = true;
 exports.register = exports.login = void 0;
 var navigation_1 = require("next/navigation");
 var zod_1 = require("@conform-to/zod");
-var schemas_1 = require("./schemas");
+var schemas_1 = require("../validators/schemas");
 function login(prevState, formData) {
     return __awaiter(this, void 0, void 0, function () {
         var submission;

@@ -12,23 +12,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 exports.__esModule = true;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-var react_1 = require("@conform-to/react");
-var zod_1 = require("@conform-to/zod");
-var react_dom_1 = require("react-dom");
-var actions_1 = require("@/other/actions");
-=======
-var react_hook_form_1 = require("react-hook-form");
-var zod_1 = require("@hookform/resolvers/zod");
->>>>>>> 6883642a3be370993070b6c19c0fba8fee240378
-var schemas_1 = require("@/other/schemas");
-=======
 var react_hook_form_1 = require("react-hook-form");
 var zod_1 = require("@hookform/resolvers/zod");
 var schemas_1 = require("@/validators/schemas");
->>>>>>> Stashed changes
-require("./style.css");
+require("./login.css");
 function LoginForm() {
     var _a, _b;
     var _c = react_hook_form_1.useForm({

@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.metadata = void 0;
-var RegisterForm_1 = require("./RegisterForm");
+var RegisterForm_1 = require("../../../components/screens/RegisterForm");
 exports.metadata = {
     title: 'Register',
     description: 'This component is for register on my app'
