@@ -1,11 +1,27 @@
 'use client';
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 exports.__esModule = true;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 var react_1 = require("@conform-to/react");
 var zod_1 = require("@conform-to/zod");
 var react_dom_1 = require("react-dom");
 var actions_1 = require("@/other/actions");
+=======
+var react_hook_form_1 = require("react-hook-form");
+var zod_1 = require("@hookform/resolvers/zod");
+>>>>>>> 6883642a3be370993070b6c19c0fba8fee240378
 var schemas_1 = require("@/other/schemas");
 =======
 var react_hook_form_1 = require("react-hook-form");
@@ -14,29 +30,28 @@ var schemas_1 = require("@/validators/schemas");
 >>>>>>> Stashed changes
 require("./style.css");
 function LoginForm() {
-    var _a = react_dom_1.useFormState(actions_1.login, undefined), lastResult = _a[0], action = _a[1];
-    var _b = react_1.useForm({
-        lastResult: lastResult,
-        onValidate: function (_a) {
-            var formData = _a.formData;
-            return zod_1.parseWithZod(formData, { schema: schemas_1.loginSchema });
-        },
-        shouldValidate: 'onBlur',
-        shouldRevalidate: 'onInput'
-    }), form = _b[0], fields = _b[1];
-    return (React.createElement("form", { id: form.id, onSubmit: form.onSubmit, action: action, noValidate: true },
+    var _a, _b;
+    var _c = react_hook_form_1.useForm({
+        resolver: zod_1.zodResolver(schemas_1.loginSchema),
+        mode: 'onBlur',
+        reValidateMode: 'onChange'
+    }), register = _c.register, handleSubmit = _c.handleSubmit, errors = _c.formState.errors;
+    var onSubmit = function (data) {
+        console.log(data);
+    };
+    return (React.createElement("form", { onSubmit: handleSubmit(onSubmit), noValidate: true },
         React.createElement("div", null,
             React.createElement("label", { htmlFor: "email" }, "Email"),
-            React.createElement("input", { className: 'text-black', id: 'email', type: "email", key: fields.email.key, name: fields.email.name, defaultValue: fields.email.initialValue }),
-            React.createElement("div", { className: 'text-xs text-red-400' }, fields.email.errors)),
+            React.createElement("input", __assign({ className: 'text-black', id: 'email', type: "email" }, register('email'))),
+            React.createElement("div", { className: 'text-xs text-red-400' }, (_a = errors.email) === null || _a === void 0 ? void 0 : _a.message)),
         React.createElement("div", null,
             React.createElement("label", { htmlFor: "password" }, "Password"),
-            React.createElement("input", { className: 'text-black', id: 'password', type: "password", key: fields.password.key, name: fields.password.name, defaultValue: fields.password.initialValue }),
-            React.createElement("div", { className: 'text-xs text-red-400' }, fields.password.errors)),
+            React.createElement("input", __assign({ className: 'text-black', id: 'password', type: "password" }, register('password'))),
+            React.createElement("div", { className: 'text-xs text-red-400' }, (_b = errors.password) === null || _b === void 0 ? void 0 : _b.message)),
         React.createElement("label", { htmlFor: "rememberme" },
             React.createElement("div", null,
                 React.createElement("span", null, "Remember me"),
-                React.createElement("input", { type: "checkbox", key: fields.remember.key, name: fields.remember.name, defaultChecked: fields.remember.initialValue === 'on' }))),
-        React.createElement("button", null, "Login")));
+                React.createElement("input", __assign({ type: "checkbox" }, register('remember'))))),
+        React.createElement("button", { type: "submit" }, "Login")));
 }
 exports["default"] = LoginForm;

@@ -23,6 +23,7 @@ export default function Header() {
                 <Link href="/zenless-zone-zero/guides" className='text-white hover:text-gray-400 transition-colors'>Guides</Link>
                 <Link href="/zenless-zone-zero/tier-list" className='text-white hover:text-gray-400 transition-colors'>Tier List</Link>
                 <Link href="#" className='text-white hover:text-gray-400 transition-colors'>News</Link>
+                <Link href="/zenless-zone-zero/characters" className='text-white hover:text-gray-400 transition-colors'>Characters</Link>
             </ul>
             <Link href="/profile" passHref>
               <Image
