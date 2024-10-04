@@ -9,3 +9,4 @@ export type Character = {
     anomaly_mastery: number
     anomaly_proficiency: number
 };
+
