@@ -6,23 +6,43 @@ import { RegisterSchema } from '@/other/schemas';
 import { z } from 'zod';
 import { bg_blue_30 } from '@/components/tokens';
 
+import { registerUser, loginUser } from '@/libs/api_general';
+import useStore from '@/store/useStore';
+import { NextRouter } from 'next/router';
+
 type IFormInput = z.infer<typeof RegisterSchema>;
 
-export default function RegisterForm() {
-        const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+interface RegisterFormProps {
+    router: NextRouter; 
+}
+
+export default function RegisterForm({ router }: RegisterFormProps) {
+    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
         resolver: zodResolver(RegisterSchema),
         mode: 'onBlur',
         reValidateMode: 'onChange',
     });
 
-    const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        console.log(data);
+
+    const { login } = useStore();
+
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        try {
+            const result = await registerUser(data.name, data.user, data.email, data.password, data.confirm_password);
+            const loginResult = await loginUser(data.email, data.password); 
+            localStorage.setItem('token', loginResult.token);
+            login(loginResult.user, loginResult.token);
+            router.push('/');
+        } catch (error: any) {
+            console.error('Error al registrarse:', error.message);
+        }
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate className={`flex flex-col p-5 rounded-2xl ${bg_blue_30}`}>
             <div className="flex flex-col">
-                <label htmlFor="name">Name</label>
+
+                <label className="text-white mb-1" htmlFor="name">Name</label>
                 <input
                     className="text-black"
                     id="name"
@@ -33,7 +53,8 @@ export default function RegisterForm() {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="email">Email</label>
+
+                <label className="text-white mb-1" htmlFor="email">Email</label>
                 <input
                     className="text-black"
                     id="email"
@@ -44,7 +65,8 @@ export default function RegisterForm() {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="user">User</label>
+
+                <label className="text-white mb-1" htmlFor="user">User</label>
                 <input
                     className="text-black"
                     id="user"
@@ -55,7 +77,9 @@ export default function RegisterForm() {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="password">Password</label>
+
+                <label className="text-white mb-1" htmlFor="password">Password</label>
+
                 <input
                     className="text-black"
                     id="password" 
@@ -66,7 +90,9 @@ export default function RegisterForm() {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="confirm_password">Confirm Password</label>
+
+                <label className="text-white mb-1" htmlFor="confirm_password">Confirm Password</label>
+
                 <input
                     className="text-black"
                     id="confirm_password" 
@@ -77,7 +103,8 @@ export default function RegisterForm() {
             </div>
 
             <div className="flex flex-col">
-                <input type="submit" value="register" />
+
+                <input className="text-white mb-1" type="submit" value="Register" />
             </div>
         </form>
     );
