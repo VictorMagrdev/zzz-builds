@@ -1,5 +1,7 @@
+'use client'
 import type { Metadata, ResolvingMetadata } from 'next'
 import Image from 'next/image'
+
 import { getCharacterById } from '@/libs/api_general'
 import { bg_blue_30, bg_blue_60 } from '@/components/tokens'
 
@@ -9,6 +11,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
  
+
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
@@ -42,6 +45,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               height={350}
               className="border-solid border-2 rounded-md bg-blue-900"
             />
+
           </div>
           <div className="ml-8 p-6 rounded-lg w-2/3 space-y-10">
             <p className="text-xl font-semibold text-white mb-3">
