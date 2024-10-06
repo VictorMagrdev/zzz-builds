@@ -7,30 +7,24 @@ import { z } from 'zod';
 import { bg_blue_30 } from '@/components/tokens';
 import { registerUser, loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
-import { NextRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 type IFormInput = z.infer<typeof RegisterSchema>;
 
-interface RegisterFormProps {
-    router: NextRouter; 
-}
 
-export default function RegisterForm({ router }: RegisterFormProps) {
+export default function RegisterForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
         resolver: zodResolver(RegisterSchema),
         mode: 'onBlur',
         reValidateMode: 'onChange',
     });
-
+    const router = useRouter();
     const { login } = useStore();
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
             const result = await registerUser(data.name, data.user, data.email, data.password, data.confirm_password);
-            const loginResult = await loginUser(data.email, data.password); 
-            localStorage.setItem('token', loginResult.token);
-            login(loginResult.user, loginResult.token);
-            router.push('/');
+            router.replace('/login')
         } catch (error: any) {
             console.error('Error al registrarse:', error.message);
         }

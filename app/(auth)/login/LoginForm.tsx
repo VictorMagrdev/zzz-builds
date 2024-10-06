@@ -25,7 +25,7 @@ export default function LoginForm({ router }: LoginFormProps) {
 
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const { login } = useStore();
+    const login  = useStore();
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         setLoading(true);
