@@ -75,16 +75,6 @@ export default function LoginForm({ router }: LoginFormProps) {
                 />
                 <div className='text-xs text-red-400'>{errors.password?.message}</div>
             </div>
-            <label className='text-white my-1 text-xs' htmlFor="rememberme">
-                <div>
-                    <span>Remember me</span>
-                    <input
-                        type="checkbox"
-                        {...register('remember')}
-                    />
-                </div>
-            </label>
-
             <button className='text-white' type="submit" disabled={loading}>
                 {loading ? 'Loading...' : 'Login'}
             </button>
