@@ -36,8 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCharacter = exports.getAllCharacters = void 0;
-var API = 'http://localhost:3001/api/v1';
+exports.loginUser = exports.registerUser = exports.getCharacterById = exports.getAllCharacters = void 0;
+var API = 'http://localhost:301/api/v1';
 exports.getAllCharacters = function () { return __awaiter(void 0, void 0, void 0, function () {
     var info, rawData, data;
     return __generator(this, function (_a) {
@@ -53,7 +53,7 @@ exports.getAllCharacters = function () { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-exports.getCharacter = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+exports.getCharacterById = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var info, rawData, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -66,5 +66,51 @@ exports.getCharacter = function (id) { return __awaiter(void 0, void 0, void 0, 
                 data = rawData.data;
                 return [2 /*return*/, data];
         }
+    });
+}); };
+exports.registerUser = function (name, user, email, password, confirmPassword) { return __awaiter(void 0, void 0, void 0, function () {
+    var response;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch(API + "/users/register", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, user: user, email: email, password: password, confirmPassword: confirmPassword })
+                })];
+            case 1:
+                response = _a.sent();
+                if (!response.ok) {
+                    throw new Error('Error al registrar el usuario');
+                }
+                return [4 /*yield*/, response.json()];
+            case 2: return [2 /*return*/, _a.sent()];
+        }
+    });
+}); };
+exports.loginUser = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
+    var users, userFound, response, res;
+    return __generator(this, function (_a) {
+        users = [{
+                "name": "victor",
+                "user": "cesar",
+                "email": "test@test.com",
+                "password": "janedoe",
+                "confirmPassword": "janedoe",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmljdG9ybTMiLCJ1c2VyIjoiY2VzYXJkbzRlIiwiZW1haWwiOiJ0ZXN0MjEzMUB0ZXN0MncyNi5jb20iLCJwYXNzd29yZCI6ImphbmVkb2UiLCJjb25maXJtUGFzc3dvcmQiOiJqYW5lZG9lIn0.b7ejYXgg3Xduxv86zhWLnUE_a_YMXsn43BirZrj-3kE"
+            }];
+        userFound = users.find(function (user) { return user.email === email && user.password === password; });
+        response = function () {
+            if (userFound) {
+                return { ok: true, data: userFound };
+            }
+            else {
+                return { ok: false };
+            }
+        };
+        res = response();
+        if (!res.ok) {
+            throw new Error('Error al iniciar sesión');
+        }
+        return [2 /*return*/, res.data];
     });
 }); };
