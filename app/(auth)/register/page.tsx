@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import RegisterForm from '../../../components/screens/RegisterForm'
+import RegisterForm from '@/components/screens/RegisterForm'
+import { useRouter } from 'next/router';
 
 export const metadata: Metadata = {
     title: 'Register',
@@ -7,5 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default function RegisterPage() {
-  return <RegisterForm/>
+  const router = useRouter();
+
+    return <RegisterForm />; 
 }

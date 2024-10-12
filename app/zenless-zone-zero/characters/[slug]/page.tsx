@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import { getCharacterById } from '@/libs/api_general'
 import { bg_blue_30, bg_blue_60 } from '@/components/tokens'
+import useStore from '@/store/useStore'
 
 
 type Props = {
@@ -28,10 +29,13 @@ export async function generateMetadata(
 }
  
 
+// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({ params }: { params: { slug: string } }) {
-  const character = await getCharacterById(parseInt(params.slug))  
+  const character = await getCharacterById(parseInt(params.slug));
+  const token = useStore((store) => store.token);
+  console.log(token)
   return (
-      <>
+      <div>
       <main className={`flex flex-col max-w-5xl mx-auto h-screen p-4 mt-4 ${bg_blue_30}`}>
         <div className={`${bg_blue_60} p-4 rounded-lg shadow-lg flex items-center justify-start`}>
           <div className="flex flex-col items-start ml-0">
@@ -88,6 +92,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </main>
-    </>
+    </div>
     )
   }
