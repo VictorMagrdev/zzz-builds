@@ -88,29 +88,21 @@ exports.registerUser = function (name, user, email, password, confirmPassword) {
     });
 }); };
 exports.loginUser = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
-    var users, userFound, response, res;
+    var response;
     return __generator(this, function (_a) {
-        users = [{
-                "name": "victor",
-                "user": "cesar",
-                "email": "test@test.com",
-                "password": "janedoe",
-                "confirmPassword": "janedoe",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmljdG9ybTMiLCJ1c2VyIjoiY2VzYXJkbzRlIiwiZW1haWwiOiJ0ZXN0MjEzMUB0ZXN0MncyNi5jb20iLCJwYXNzd29yZCI6ImphbmVkb2UiLCJjb25maXJtUGFzc3dvcmQiOiJqYW5lZG9lIn0.b7ejYXgg3Xduxv86zhWLnUE_a_YMXsn43BirZrj-3kE"
-            }];
-        userFound = users.find(function (user) { return user.email === email && user.password === password; });
-        response = function () {
-            if (userFound) {
-                return { ok: true, data: userFound };
-            }
-            else {
-                return { ok: false };
-            }
-        };
-        res = response();
-        if (!res.ok) {
-            throw new Error('Error al iniciar sesión');
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch(API + "/users/login", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, password: password })
+                })];
+            case 1:
+                response = _a.sent();
+                if (!response.ok) {
+                    throw new Error('Error al ingresar el usuario');
+                }
+                return [4 /*yield*/, response.json()];
+            case 2: return [2 /*return*/, _a.sent()];
         }
-        return [2 /*return*/, res.data];
     });
 }); };
