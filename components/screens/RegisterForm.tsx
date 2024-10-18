@@ -19,10 +19,9 @@ export default function RegisterForm() {
         mode: 'onBlur',
         reValidateMode: 'onChange',
     });
-
-
-    const { login } = useStore();
     const router = useRouter();
+    const { login } = useStore();
+
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
             const result = await registerUser(data.name, data.user, data.email, data.password, data.confirm_password);
