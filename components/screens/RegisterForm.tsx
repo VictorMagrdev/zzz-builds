@@ -19,16 +19,15 @@ export default function RegisterForm() {
         mode: 'onBlur',
         reValidateMode: 'onChange',
     });
-
-
-    const { login } = useStore();
     const router = useRouter();
+    const { login } = useStore();
+
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
             const result = await registerUser(data.name, data.user, data.email, data.password, data.confirm_password);
             const loginResult:any = await loginUser(data.email, data.password); 
             localStorage.setItem('token', loginResult.token);
-            login(loginResult.user, loginResult.token);
+            login(loginResult.token);
             router.push('/');
         } catch (error: any) {
             console.error('Error al registrarse:', error.message);

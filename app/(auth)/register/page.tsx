@@ -8,7 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function RegisterPage() {
-  const router = useRouter();
-
     return <RegisterForm />; 
 }
