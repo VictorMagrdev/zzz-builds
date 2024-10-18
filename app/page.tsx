@@ -1,8 +1,11 @@
 import { bg_blue_30 } from "@/components/tokens"
 import ZenlessIndex from "../assets/images/ZenlessIndex.jpeg"
 import Image from "next/image";
+import React, { useEffect } from "react";
+import useStore from "@/store/useStore";
 
 export default function Home() {
+
   return (
     <>
     <main className={`flex flex-col max-w-5xl mx-auto h-screen p-4 mt-4 ${bg_blue_30}`}>

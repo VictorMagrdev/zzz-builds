@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { RegisterSchema } from '@/other/schemas';
+import { RegisterSchema } from '@/validators/schemas';
 import { z } from 'zod';
 import { bg_blue_30 } from '@/components/tokens';
 

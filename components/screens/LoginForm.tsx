@@ -2,16 +2,24 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginSchema } from '@/other/schemas';
+import { loginSchema } from '@/validators/schemas';
 import { z } from 'zod';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
 import { useRouter } from 'next/navigation';
-import './style.css'
+import './login.css';
 
 type IFormInput = z.infer<typeof loginSchema>;
+interface User {
+    name: string;
+    user: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    token: string;
+}
 
 export default function LoginForm() { 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
@@ -23,17 +31,18 @@ export default function LoginForm() {
 
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
-    const login  = useStore();
-
+    const login = useStore((store) => store.login);
+    const token = useStore((store) => store.token);
+    const router = useRouter()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         setLoading(true);
         setErrorMessage('');
 
         try {
-            const result = await loginUser(data.email, data.password);
+            const result:any = await loginUser(data.email, data.password);
             localStorage.setItem('token', result.token);
-            login(result.user, result.token);
+            login(result.token);
+            console.log(token)
             router.push('/');
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || error.message || 'Error desconocido');
@@ -43,6 +52,9 @@ export default function LoginForm() {
 
     };
 
+    useEffect(() => {
+        console.log(token)
+    }, [token])
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
@@ -72,6 +84,16 @@ export default function LoginForm() {
                 />
                 <div className='text-xs text-red-400'>{errors.password?.message}</div>
             </div>
+            <label className='text-white my-1 text-xs' htmlFor="rememberme">
+                <div>
+                    <span>Remember me</span>
+                    <input
+                        type="checkbox"
+                        {...register('remember')}
+                    />
+                </div>
+            </label>
+
             <button className='text-white' type="submit" disabled={loading}>
                 {loading ? 'Loading...' : 'Login'}
             </button>

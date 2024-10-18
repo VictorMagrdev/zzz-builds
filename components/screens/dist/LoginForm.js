@@ -54,19 +54,21 @@ var schemas_1 = require("@/validators/schemas");
 var react_1 = require("react");
 var api_general_1 = require("@/libs/api_general");
 var useStore_1 = require("@/store/useStore");
+var navigation_1 = require("next/navigation");
 require("./login.css");
-function LoginForm(_a) {
+function LoginForm() {
     var _this = this;
-    var _b, _c;
-    var router = _a.router;
-    var _d = react_hook_form_1.useForm({
+    var _a, _b;
+    var _c = react_hook_form_1.useForm({
         resolver: zod_1.zodResolver(schemas_1.loginSchema),
         mode: 'onBlur',
         reValidateMode: 'onChange'
-    }), register = _d.register, handleSubmit = _d.handleSubmit, errors = _d.formState.errors;
-    var _e = react_1.useState(''), errorMessage = _e[0], setErrorMessage = _e[1];
-    var _f = react_1.useState(false), loading = _f[0], setLoading = _f[1];
-    var login = useStore_1["default"]().login;
+    }), register = _c.register, handleSubmit = _c.handleSubmit, errors = _c.formState.errors;
+    var _d = react_1.useState(''), errorMessage = _d[0], setErrorMessage = _d[1];
+    var _e = react_1.useState(false), loading = _e[0], setLoading = _e[1];
+    var login = useStore_1["default"](function (store) { return store.login; });
+    var token = useStore_1["default"](function (store) { return store.token; });
+    var router = navigation_1.useRouter();
     var onSubmit = function (data) { return __awaiter(_this, void 0, void 0, function () {
         var result, error_1;
         var _a, _b;
@@ -82,7 +84,8 @@ function LoginForm(_a) {
                 case 2:
                     result = _c.sent();
                     localStorage.setItem('token', result.token);
-                    login(result.user, result.token);
+                    login(result.token);
+                    console.log(token);
                     router.push('/');
                     return [3 /*break*/, 5];
                 case 3:
@@ -96,16 +99,19 @@ function LoginForm(_a) {
             }
         });
     }); };
+    react_1.useEffect(function () {
+        console.log(token);
+    }, [token]);
     return (React.createElement("form", { onSubmit: handleSubmit(onSubmit), noValidate: true },
         errorMessage && React.createElement("div", { className: "text-red-400" }, errorMessage),
         React.createElement("div", null,
             React.createElement("label", { className: 'text-white my-1', htmlFor: "email" }, "Email"),
             React.createElement("input", __assign({ className: 'text-black', id: 'email', type: "email" }, register('email'), { "aria-invalid": errors.email ? "true" : "false" })),
-            React.createElement("div", { className: 'text-xs text-red-400' }, (_b = errors.email) === null || _b === void 0 ? void 0 : _b.message)),
+            React.createElement("div", { className: 'text-xs text-red-400' }, (_a = errors.email) === null || _a === void 0 ? void 0 : _a.message)),
         React.createElement("div", null,
             React.createElement("label", { className: 'text-white my-1', htmlFor: "password" }, "Password"),
             React.createElement("input", __assign({ className: 'text-black', id: 'password', type: "password" }, register('password'), { "aria-invalid": errors.password ? "true" : "false" })),
-            React.createElement("div", { className: 'text-xs text-red-400' }, (_c = errors.password) === null || _c === void 0 ? void 0 : _c.message)),
+            React.createElement("div", { className: 'text-xs text-red-400' }, (_b = errors.password) === null || _b === void 0 ? void 0 : _b.message)),
         React.createElement("label", { className: 'text-white my-1 text-xs', htmlFor: "rememberme" },
             React.createElement("div", null,
                 React.createElement("span", null, "Remember me"),

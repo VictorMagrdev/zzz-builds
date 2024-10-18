@@ -54,16 +54,17 @@ var schemas_1 = require("@/validators/schemas");
 var tokens_1 = require("@/components/tokens");
 var api_general_1 = require("@/libs/api_general");
 var useStore_1 = require("@/store/useStore");
-function RegisterForm(_a) {
+var navigation_1 = require("next/navigation");
+function RegisterForm() {
     var _this = this;
-    var _b, _c, _d, _e, _f;
-    var router = _a.router;
-    var _g = react_hook_form_1.useForm({
+    var _a, _b, _c, _d, _e;
+    var _f = react_hook_form_1.useForm({
         resolver: zod_1.zodResolver(schemas_1.RegisterSchema),
         mode: 'onBlur',
         reValidateMode: 'onChange'
-    }), register = _g.register, handleSubmit = _g.handleSubmit, errors = _g.formState.errors;
+    }), register = _f.register, handleSubmit = _f.handleSubmit, errors = _f.formState.errors;
     var login = useStore_1["default"]().login;
+    var router = navigation_1.useRouter();
     var onSubmit = function (data) { return __awaiter(_this, void 0, void 0, function () {
         var result, loginResult, error_1;
         return __generator(this, function (_a) {
@@ -92,23 +93,23 @@ function RegisterForm(_a) {
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { className: "text-white mb-1", htmlFor: "name" }, "Name"),
             React.createElement("input", __assign({ className: "text-black", id: "name", type: "text" }, register('name'))),
-            React.createElement("div", { className: "text-xs text-red-400" }, (_b = errors.name) === null || _b === void 0 ? void 0 : _b.message)),
+            React.createElement("div", { className: "text-xs text-red-400" }, (_a = errors.name) === null || _a === void 0 ? void 0 : _a.message)),
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { className: "text-white mb-1", htmlFor: "email" }, "Email"),
             React.createElement("input", __assign({ className: "text-black", id: "email", type: "email" }, register('email'))),
-            React.createElement("div", { className: "text-xs text-red-400" }, (_c = errors.email) === null || _c === void 0 ? void 0 : _c.message)),
+            React.createElement("div", { className: "text-xs text-red-400" }, (_b = errors.email) === null || _b === void 0 ? void 0 : _b.message)),
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { className: "text-white mb-1", htmlFor: "user" }, "User"),
             React.createElement("input", __assign({ className: "text-black", id: "user", type: "text" }, register('user'))),
-            React.createElement("div", { className: "text-xs text-red-400" }, (_d = errors.user) === null || _d === void 0 ? void 0 : _d.message)),
+            React.createElement("div", { className: "text-xs text-red-400" }, (_c = errors.user) === null || _c === void 0 ? void 0 : _c.message)),
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { className: "text-white mb-1", htmlFor: "password" }, "Password"),
             React.createElement("input", __assign({ className: "text-black", id: "password", type: "password" }, register('password'))),
-            React.createElement("div", { className: "text-xs text-red-400" }, (_e = errors.password) === null || _e === void 0 ? void 0 : _e.message)),
+            React.createElement("div", { className: "text-xs text-red-400" }, (_d = errors.password) === null || _d === void 0 ? void 0 : _d.message)),
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("label", { className: "text-white mb-1", htmlFor: "confirm_password" }, "Confirm Password"),
             React.createElement("input", __assign({ className: "text-black", id: "confirm_password", type: "password" }, register('confirm_password'))),
-            React.createElement("div", { className: "text-xs text-red-400" }, (_f = errors.confirm_password) === null || _f === void 0 ? void 0 : _f.message)),
+            React.createElement("div", { className: "text-xs text-red-400" }, (_e = errors.confirm_password) === null || _e === void 0 ? void 0 : _e.message)),
         React.createElement("div", { className: "flex flex-col" },
             React.createElement("input", { className: "text-white mb-1", type: "submit", value: "Register" }))));
 }

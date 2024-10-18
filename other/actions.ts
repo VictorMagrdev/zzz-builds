@@ -4,7 +4,7 @@
 import { redirect } from 'next/navigation';
 
 import { parseWithZod } from '@conform-to/zod';
-import { loginSchema, RegisterSchema } from './schemas';
+import { loginSchema, RegisterSchema } from '../validators/schemas';
 
 
 export async function login(prevState: unknown, formData: FormData) {
