@@ -34,11 +34,11 @@ export const loginUser = async (email: string, password: string) => {
     const response = await fetch(`${API}/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password}),
     });
 
     if (!response.ok) {
-        throw new Error('Error al iniciar sesión');
+        throw new Error('Error al ingresar el usuario');
     }
 
     return await response.json();

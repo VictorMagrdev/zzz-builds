@@ -36,8 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCharacter = exports.getAllCharacters = void 0;
-var API = 'http://localhost:3001/api/v1';
+exports.loginUser = exports.registerUser = exports.getCharacterById = exports.getAllCharacters = void 0;
+var API = 'http://localhost:301/api/v1';
 exports.getAllCharacters = function () { return __awaiter(void 0, void 0, void 0, function () {
     var info, rawData, data;
     return __generator(this, function (_a) {
@@ -53,7 +53,7 @@ exports.getAllCharacters = function () { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-exports.getCharacter = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+exports.getCharacterById = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var info, rawData, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -65,6 +65,44 @@ exports.getCharacter = function (id) { return __awaiter(void 0, void 0, void 0, 
                 rawData = _a.sent();
                 data = rawData.data;
                 return [2 /*return*/, data];
+        }
+    });
+}); };
+exports.registerUser = function (name, user, email, password, confirmPassword) { return __awaiter(void 0, void 0, void 0, function () {
+    var response;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch(API + "/users/register", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, user: user, email: email, password: password, confirmPassword: confirmPassword })
+                })];
+            case 1:
+                response = _a.sent();
+                if (!response.ok) {
+                    throw new Error('Error al registrar el usuario');
+                }
+                return [4 /*yield*/, response.json()];
+            case 2: return [2 /*return*/, _a.sent()];
+        }
+    });
+}); };
+exports.loginUser = function (email, password) { return __awaiter(void 0, void 0, void 0, function () {
+    var response;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch(API + "/users/login", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, password: password })
+                })];
+            case 1:
+                response = _a.sent();
+                if (!response.ok) {
+                    throw new Error('Error al ingresar el usuario');
+                }
+                return [4 /*yield*/, response.json()];
+            case 2: return [2 /*return*/, _a.sent()];
         }
     });
 }); };
