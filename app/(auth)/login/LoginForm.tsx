@@ -8,16 +8,12 @@ import { z } from 'zod';
 import { useState } from 'react';
 import { loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
-import { NextRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import './style.css'
 
 type IFormInput = z.infer<typeof loginSchema>;
 
-interface LoginFormProps {
-    router: NextRouter; 
-}
-
-export default function LoginForm({ router }: LoginFormProps) { 
+export default function LoginForm() { 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
         resolver: zodResolver(loginSchema),
         mode: 'onBlur',
@@ -27,6 +23,7 @@ export default function LoginForm({ router }: LoginFormProps) {
 
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
     const login  = useStore();
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
