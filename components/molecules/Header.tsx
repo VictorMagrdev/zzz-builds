@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import zzzLogo from "../../assets/images/zzz-logo.png"
+import zzzLogo from "../../assets/images/zzz-logo.webp"
 import { bg_blue_30 } from '../tokens'
 import bangboo from '@/assets/images/profile.webp'
 import useStore from '@/store/useStore'
