@@ -51,6 +51,7 @@ exports.__esModule = true;
 var react_hook_form_1 = require("react-hook-form");
 var zod_1 = require("@hookform/resolvers/zod");
 var schemas_1 = require("@/validators/schemas");
+var js_cookie_1 = require("js-cookie");
 var react_1 = require("react");
 var api_general_1 = require("@/libs/api_general");
 var useStore_1 = require("@/store/useStore");
@@ -70,7 +71,7 @@ function LoginForm() {
     var token = useStore_1["default"](function (store) { return store.token; });
     var router = navigation_1.useRouter();
     var onSubmit = function (data) { return __awaiter(_this, void 0, void 0, function () {
-        var result, error_1;
+        var result, currentUser, error_1;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -83,10 +84,11 @@ function LoginForm() {
                     return [4 /*yield*/, api_general_1.loginUser(data.email, data.password)];
                 case 2:
                     result = _c.sent();
-                    localStorage.setItem('token', result.token);
+                    currentUser = js_cookie_1["default"].get("token");
+                    console.log('cookie', currentUser);
                     login(result.token);
                     console.log(token);
-                    router.push('/');
+                    router.push('/profile');
                     return [3 /*break*/, 5];
                 case 3:
                     error_1 = _c.sent();

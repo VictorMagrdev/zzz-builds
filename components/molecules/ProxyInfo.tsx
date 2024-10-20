@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
+import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
 
 interface ProxyInfoProps {
     imagen: string;

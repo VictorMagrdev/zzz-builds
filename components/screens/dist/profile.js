@@ -5,20 +5,17 @@ exports.metadata = void 0;
 var tokens_1 = require("@/components/tokens");
 var components_1 = require("@/components");
 var Ben_png_1 = require("@/assets/images/Ben.png");
-var useStore_1 = require("@/store/useStore");
-var react_1 = require("react");
-var navigation_1 = require("next/navigation");
 exports.metadata = {
     title: 'Profile',
     description: 'Profile info'
 };
 function Profile() {
-    var token = useStore_1["default"](function (store) { return store.token; });
-    react_1.useEffect(function () {
-        if (!token) {
-            navigation_1.redirect("/");
-        }
-    }, [token]);
+    // const token = useStore((store) => store.token);
+    // useEffect(() => {
+    //     if (!token) {
+    //       redirect("/");
+    //     }
+    //   }, [token]);
     return (React.createElement("div", { className: "flex flex-col " + tokens_1.bg_blue_60 + " space-y-4 min-h-screen" },
         React.createElement("div", { className: "m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4" },
             React.createElement(components_1.ProxyInfo, { imagen: Ben_png_1["default"], username: "Usuario123", nivel: 5, uid: "12345" }),

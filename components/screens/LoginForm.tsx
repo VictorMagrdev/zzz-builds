@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '@/validators/schemas';
 import { z } from 'zod';
-
+import Cookie from "js-cookie";
 import { useEffect, useState } from 'react';
 import { loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
@@ -12,14 +12,6 @@ import { useRouter } from 'next/navigation';
 import './login.css';
 
 type IFormInput = z.infer<typeof loginSchema>;
-interface User {
-    name: string;
-    user: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    token: string;
-}
 
 export default function LoginForm() { 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
@@ -39,11 +31,14 @@ export default function LoginForm() {
         setErrorMessage('');
 
         try {
+
             const result:any = await loginUser(data.email, data.password);
-            localStorage.setItem('token', result.token);
+            
+            const currentUser = Cookie.get("token");
+  console.log('cookie',currentUser);
             login(result.token);
             console.log(token)
-            router.push('/');
+            router.push('/profile');
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || error.message || 'Error desconocido');
         } finally {
