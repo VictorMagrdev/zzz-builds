@@ -1,8 +1,7 @@
 import { bg_blue_30 } from "@/components/tokens"
 import ZenlessIndex from "../assets/images/ZenlessIndex.webp"
 import Image from "next/image";
-import React, { useEffect } from "react";
-import useStore from "@/store/useStore";
+import React from "react";
 
 export default function Home() {
 

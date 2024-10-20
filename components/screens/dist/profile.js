@@ -1,3 +1,4 @@
+'use client';
 "use strict";
 exports.__esModule = true;
 exports.metadata = void 0;
@@ -9,6 +10,12 @@ exports.metadata = {
     description: 'Profile info'
 };
 function Profile() {
+    // const token = useStore((store) => store.token);
+    // useEffect(() => {
+    //     if (!token) {
+    //       redirect("/");
+    //     }
+    //   }, [token]);
     return (React.createElement("div", { className: "flex flex-col " + tokens_1.bg_blue_60 + " space-y-4 min-h-screen" },
         React.createElement("div", { className: "m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4" },
             React.createElement(components_1.ProxyInfo, { imagen: Ben_png_1["default"], username: "Usuario123", nivel: 5, uid: "12345" }),
