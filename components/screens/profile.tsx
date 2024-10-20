@@ -3,9 +3,6 @@ import type { Metadata } from "next";
 import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
 import { ProxyInfo } from "@/components";
 import Ben from "@/assets/images/Ben.png"
-import useStore from "@/store/useStore";
-import { useEffect } from "react";
-import { redirect } from "next/navigation";
 
 export const metadata: Metadata= {
   title: 'Profile',
@@ -14,12 +11,12 @@ export const metadata: Metadata= {
 
 
 export default function Profile() {
-    const token = useStore((store) => store.token);
-    useEffect(() => {
-        if (!token) {
-          redirect("/");
-        }
-      }, [token]);
+    // const token = useStore((store) => store.token);
+    // useEffect(() => {
+    //     if (!token) {
+    //       redirect("/");
+    //     }
+    //   }, [token]);
     return (
         <div className={`flex flex-col ${bg_blue_60} space-y-4 min-h-screen`} >
             <div className="m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4">
