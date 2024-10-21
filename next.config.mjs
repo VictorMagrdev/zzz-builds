@@ -5,7 +5,7 @@ const nextConfig = {
         {
           protocol: 'http',
           hostname: 'localhost',
-          port: '301', 
+          port: '302', 
           pathname: '/imagenes/**', 
         },
       ],

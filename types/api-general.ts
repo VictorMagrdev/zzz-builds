@@ -10,3 +10,7 @@ export type Character = {
     anomaly_proficiency: number
 };
 
+export type Profile = {
+    user: string
+    img_profile: string
+}

@@ -13,7 +13,7 @@ export function Card({ character }: CardProps) {
         <Image
           className="rounded-md transition-transform duration-300 transform hover:scale-105"
 
-          src={`http://localhost:301/imagenes/${character.imagen}`}
+          src={`http://localhost:302/imagenes/personajes/${character.imagen}`}
           alt={character.nombre}
           width={250}
           height={200}

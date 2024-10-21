@@ -1,5 +1,5 @@
 import './layout.css'
-import AuthBackground from '@/assets/images/auth-background.png'
+import AuthBackground from '@/assets/images/auth-background.webp'
 import Image from 'next/image';
 export default function AuthLayout({
     children

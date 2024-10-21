@@ -1,5 +1,5 @@
 import { bg_blue_30 } from "@/components/tokens"
-import ZenlessIndex from "../assets/images/ZenlessIndex.jpeg"
+import ZenlessIndex from "../assets/images/ZenlessIndex.webp"
 import Image from "next/image";
 import React from "react";
 
