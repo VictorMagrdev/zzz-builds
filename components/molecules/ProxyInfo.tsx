@@ -1,9 +1,10 @@
 'use client'
 import Image from "next/image";
+import { StaticImageData } from 'next/image';
 import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
 
 interface ProxyInfoProps {
-    imagen: string;
+    imagen: string | StaticImageData;
     username: string;
     nivel: number;
     uid: string;

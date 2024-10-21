@@ -35,10 +35,10 @@ export default function LoginForm() {
             const result:any = await loginUser(data.email, data.password);
             
             const currentUser = Cookie.get("token");
-  console.log('cookie',currentUser);
+            console.log('cookie',currentUser);
             login(result.token);
             console.log(token)
-            router.push('/profile');
+            router.push('/profile/');
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || error.message || 'Error desconocido');
         } finally {

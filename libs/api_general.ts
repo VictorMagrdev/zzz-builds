@@ -1,3 +1,4 @@
+import Cookie from "js-cookie";
 
 
 const API = 'http://localhost:302/api/v1';
@@ -41,6 +42,29 @@ export const loginUser = async (email: string, password: string) => {
         throw new Error('Error al ingresar el usuario');
     }
 
-    return await response.json();
+    const data = await response.json()
+
+    localStorage.setItem('token', data.token)
+
+    return data;
 };
 
+export const getUserProfile = async () => {
+    const token = Cookie.get("token")
+    console.log("ya fue: ",token);
+    
+
+    const response = await fetch(`${API}/users/profile`, {
+        method: 'GET',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al obtener el profile');
+    }
+
+    return await response.json();
+};
