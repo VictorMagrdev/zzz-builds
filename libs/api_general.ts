@@ -44,16 +44,10 @@ export const loginUser = async (email: string, password: string) => {
 
     const data = await response.json()
 
-    localStorage.setItem('token', data.token)
-
     return data;
 };
 
-export const getUserProfile = async () => {
-    const token = Cookie.get("token")
-    console.log("ya fue: ",token);
-    
-
+export const getUserProfile = async ( token: string | null) => {
     const response = await fetch(`${API}/users/profile`, {
         method: 'GET',
         headers: { 
@@ -61,7 +55,9 @@ export const getUserProfile = async () => {
             'Authorization': `Bearer ${token}`
         },
     });
-
+    console.log("El tokennnn", token);
+    
+    console.log(response)
     if (!response.ok) {
         throw new Error('Error al obtener el profile');
     }

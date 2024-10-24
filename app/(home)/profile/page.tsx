@@ -14,8 +14,7 @@ export const metadata: Metadata= {
 
 
 export default async function Page() {
-  const profile  = await getUserProfile()
   return (
-      <ProfileView profile={profile}/>
+      <ProfileView />
   );
 }
