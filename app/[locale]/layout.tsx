@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { bg_blue_60 } from "@/components/tokens";
 import Header from "@/components/molecules/Header";
-
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -11,17 +12,22 @@ export const metadata: Metadata = {
   description: "Crea Guias enfocadas a Zenless Zone Zero",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const message = await getMessages();
+
   return (
+    <NextIntlClientProvider messages={message}>
     <html lang="en">
       <body className={`${bg_blue_60} ${inter.className}`}>
         <Header/>
         {children}
         </body>
     </html>
+    </NextIntlClientProvider>
   );
 }
