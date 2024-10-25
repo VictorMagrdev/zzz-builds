@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import LoginForm from '@/components/screens/LoginForm';
-import { useRouter } from 'next/navigation';
 
 export const metadata: Metadata = {
     title: 'Login',

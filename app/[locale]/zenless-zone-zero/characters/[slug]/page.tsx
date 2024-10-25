@@ -1,6 +1,6 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 import { getCharacterById } from '@/libs/api_general'
-import CharacterView from '../../../../components/molecules/CharacterView'
+import CharacterView from '@/components/molecules/CharacterView'
 
 
 type Props = {

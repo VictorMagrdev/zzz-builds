@@ -1,6 +1,46 @@
 {
-    "Homepage": {
-        "title":"Bienvenido a la pagina principal",
-        "content": "Este es el contenido de la pagina principal"
-    }
+  "home_page": {
+    "title": "Comunidad de guías de Zenless Zone Zero",
+    "image_alt": "Imagen principal de Zenless"
+  },
+  "login_form": {
+    "email_label": "Correo electrónico",
+    "password_label": "Contraseña",
+    "remember_me": "Recuérdame",
+    "login_button": "Iniciar sesión",
+    "loading_message": "Cargando...",
+    "error_message": "Error desconocido",
+    "email_error": "Correo inválido",
+    "password_error": "Contraseña inválida"
+  },
+  "profile_view": {
+    "my_tier_list": "mi lista de niveles",
+    "my_news": "mis noticias",
+    "my_guides": "mis guías",
+    "account_settings": "configuración de la cuenta",
+    "social_links": "enlaces sociales",
+    "proxy_info": "información del proxy"
+  },
+  "register_form": {
+    "name_label": "Nombre",
+    "email_label": "Correo electrónico",
+    "user_label": "Usuario",
+    "password_label": "Contraseña",
+    "confirm_password_label": "Confirmar Contraseña",
+    "register_button": "Registrarse"
+  },
+  "header": {
+    "guides": "Guías",
+    "tier_list": "Lista de niveles",
+    "news": "Noticias",
+    "characters": "Personajes",
+    "login_button": "Iniciar sesión",
+    "register_button": "Registrarse",
+    "logout_button": "Cerrar sesión",
+    "profile_alt": "Avatar del usuario"
+  },
+  "proxy_info": {
+    "level": "Nivel",
+    "uid": "UID"
+  }
 }

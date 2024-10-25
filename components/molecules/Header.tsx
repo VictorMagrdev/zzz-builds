@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import zzzLogo from "../../assets/images/zzz-logo.webp"
+import zzzLogo from "@/assets/images/zzz-logo.webp"
 import { bg_blue_30, bg_blue_10 } from '../tokens'
 import bangboo from '@/assets/images/profile.webp'
 import useStore from '@/store/useStore'
@@ -51,7 +51,7 @@ export default function Header() {
           </Link>
           <button 
           className={`${bg_blue_10} h-10 px-6 font-semibold rounded-md text-white`}
-          onClick={()=> logout()}>log out</button>
+          onClick={()=> {logout(); router.push('/login')}}>log out</button>
           </>
         ) : (
           <>

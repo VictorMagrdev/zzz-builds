@@ -1,5 +1,5 @@
 {
-    "compile-hero.disable-compile-files-on-did-save-code": false,
+    "compile-hero.disable-compile-files-on-did-save-code": true,
     "editor.fontFamily": "Jetbrains Mono",
     "editor.codeLensFontFamily": "Jetbrains Mono",
     "editor.experimentalInlineEdit.fontFamily": "Jetbrains Mono",

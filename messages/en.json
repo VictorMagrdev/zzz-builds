@@ -1,6 +1,46 @@
 {
-    "Homepage": {
-        "title":"Welcome to the homepage",
-        "content": "This is the homepage content"
-    }
+  "home_page": {
+    "title": "Zenless Zone Zero Guides Community",
+    "image_alt": "Zenless main"
+  },
+  "login_form": {
+    "email_label": "Email",
+    "password_label": "Password",
+    "remember_me": "Remember me",
+    "login_button": "Login",
+    "loading_message": "Loading...",
+    "error_message": "Unknown error",
+    "email_error": "Invalid email",
+    "password_error": "Invalid password"
+  },
+  "profile_view": {
+    "my_tier_list": "my tier list",
+    "my_news": "my news",
+    "my_guides": "my guides",
+    "account_settings": "account settings",
+    "social_links": "social links",
+    "proxy_info": "proxy info"
+  },
+  "register_form": {
+    "name_label": "Name",
+    "email_label": "Email",
+    "user_label": "User",
+    "password_label": "Password",
+    "confirm_password_label": "Confirm Password",
+    "register_button": "Register"
+  },
+  "header": {
+    "guides": "Guides",
+    "tier_list": "Tier List",
+    "news": "News",
+    "characters": "Characters",
+    "login_button": "Login",
+    "register_button": "Register",
+    "logout_button": "Log out",
+    "profile_alt": "User avatar"
+  },
+  "proxy_info": {
+    "level": "Level",
+    "uid": "UID"
+  }
 }
