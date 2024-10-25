@@ -10,6 +10,7 @@ import { loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
 import { useRouter } from 'next/navigation';
 import './login.css';
+import { useTranslations } from 'next-intl';
 
 type IFormInput = z.infer<typeof loginSchema>;
 
@@ -47,16 +48,18 @@ export default function LoginForm() {
 
     };
 
+    const t = useTranslations("login_form");
+
     useEffect(() => {
         console.log(token)
     }, [token])
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
-            {errorMessage && <div className="text-red-400">{errorMessage}</div>}
+            {errorMessage && <div className="text-red-400">{t("error_message")}</div>}
 
             <div>
-                <label className='text-white my-1' htmlFor="email">Email</label>
+                <label className='text-white my-1' htmlFor="email">{t("email_label")}</label>
                 <input
                     className='text-black'
                     id='email'
@@ -68,20 +71,27 @@ export default function LoginForm() {
                 <div className='text-xs text-red-400'>{errors.email?.message}</div>
             </div>
             <div>
-                <label className='text-white my-1' htmlFor="password">Password</label>
-                <input
-                    className='text-black'
-                    id='password'
-                    type="password"
-                    {...register('password')}
-
-                    aria-invalid={errors.password ? "true" : "false"}
-                />
-                <div className='text-xs text-red-400'>{errors.password?.message}</div>
+                <label className='text-white my-1' htmlFor="password">
+                    {t("password_label")}
+                </label>
+                    <input
+                        className='text-black'
+                        id='password'
+                        type="password"
+                        {...register('password')}
+                        aria-invalid={errors.password ? "true" : "false"}
+                        aria-describedby={errors.password ? "password-error" : undefined}
+                    />
+                    {errors.password && (
+                        <div id="password-error" className='text-xs text-red-400'>
+                        {t("password_error")}
+                        </div>
+                    )}
             </div>
+
             <label className='text-white my-1 text-xs' htmlFor="rememberme">
                 <div>
-                    <span>Remember me</span>
+                    <span>{t("remember_me")}</span>
                     <input
                         type="checkbox"
                         {...register('remember')}
@@ -90,8 +100,9 @@ export default function LoginForm() {
             </label>
 
             <button className='text-white' type="submit" disabled={loading}>
-                {loading ? 'Loading...' : 'Login'}
+                {loading ? t("loading_message") : t("login_button")}
             </button>
+
         </form>
     );
 }

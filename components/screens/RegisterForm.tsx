@@ -9,6 +9,7 @@ import { bg_blue_30 } from '@/components/tokens';
 import { registerUser, loginUser } from '@/libs/api_general';
 import useStore from '@/store/useStore';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 type IFormInput = z.infer<typeof RegisterSchema>;
 
@@ -33,12 +34,12 @@ export default function RegisterForm() {
             console.error('Error al registrarse:', error.message);
         }
     };
-
+    const t = useTranslations("register_form")
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate className={`flex flex-col p-5 rounded-2xl ${bg_blue_30}`}>
             <div className="flex flex-col">
 
-                <label className="text-white mb-1" htmlFor="name">Name</label>
+                <label className="text-white mb-1" htmlFor="name">{t("name_label")}</label>
                 <input
                     className="text-black"
                     id="name"
@@ -50,7 +51,7 @@ export default function RegisterForm() {
 
             <div className="flex flex-col">
 
-                <label className="text-white mb-1" htmlFor="email">Email</label>
+                <label className="text-white mb-1" htmlFor="email">{t("email_label")}</label>
                 <input
                     className="text-black"
                     id="email"
@@ -62,7 +63,7 @@ export default function RegisterForm() {
 
             <div className="flex flex-col">
 
-                <label className="text-white mb-1" htmlFor="user">User</label>
+                <label className="text-white mb-1" htmlFor="user">{t("user_label")}</label>
                 <input
                     className="text-black"
                     id="user"
@@ -74,7 +75,7 @@ export default function RegisterForm() {
 
             <div className="flex flex-col">
 
-                <label className="text-white mb-1" htmlFor="password">Password</label>
+                <label className="text-white mb-1" htmlFor="password">{t("password_label")}</label>
 
                 <input
                     className="text-black"
@@ -87,7 +88,7 @@ export default function RegisterForm() {
 
             <div className="flex flex-col">
 
-                <label className="text-white mb-1" htmlFor="confirm_password">Confirm Password</label>
+                <label className="text-white mb-1" htmlFor="confirm_password">{t("confirm_password_label")}</label>
 
                 <input
                     className="text-black"
@@ -100,7 +101,7 @@ export default function RegisterForm() {
 
             <div className="flex flex-col">
 
-                <input className="text-white mb-1" type="submit" value="Register" />
+                <input className="text-white mb-1" type="submit" value={t("register_button")} />
             </div>
         </form>
     );
