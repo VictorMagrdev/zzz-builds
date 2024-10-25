@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { StaticImageData } from 'next/image';
 import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
+import { useTranslations } from "next-intl";
 
 interface ProxyInfoProps {
     imagen: string | StaticImageData;
@@ -11,6 +12,7 @@ interface ProxyInfoProps {
 }
 
 export function ProxyInfo ({ imagen, username, nivel, uid }:ProxyInfoProps) {
+    const t = useTranslations("proxy_info")
     return (
         <div className={`flex flex-col ${bg_blue_30} rounded-lg w-96 p-8`}>
         <Image
@@ -23,8 +25,8 @@ export function ProxyInfo ({ imagen, username, nivel, uid }:ProxyInfoProps) {
             <div className={`${bg_blue_60} rounded-[25px] font-mono`}>
                 <div className="p-2 text-white">
                     <h2>{username}</h2>
-                    <p>Nivel: {nivel}</p>
-                    <p>UID: {uid}</p>
+                    <p>{t("level")}: {nivel}</p>
+                    <p>{t("uid")}: {uid}</p>
                 </div>   
             </div>
         </div>

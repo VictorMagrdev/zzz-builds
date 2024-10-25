@@ -30,6 +30,7 @@
     "register_button": "Register"
   },
   "header": {
+    "language_button": "Change Language",
     "guides": "Guides",
     "tier_list": "Tier List",
     "news": "News",
