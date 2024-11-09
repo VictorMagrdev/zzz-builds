@@ -26,6 +26,7 @@ export default function ProfileView() {
     }, [token]);
 
   if (!profile) return <div>Loading...</div>
+
     return (
         <div className={`flex flex-col ${bg_blue_60} space-y-4 min-h-screen`} >
             <div className="m-8 grid grid-rows-2 grid-flow-col gap-x-0 gap-y-4">
