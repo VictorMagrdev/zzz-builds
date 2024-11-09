@@ -41,7 +41,8 @@ export default function Header() {
             width={120}
             height={120}
             alt="Logo Zenless"
-            className='h-auto'
+            className='max-h-full max-w-full h-auto w-auto' 
+            priority 
           />
         </Link>
         <ul className='flex space-x-10 text-lg items-center'>

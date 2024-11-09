@@ -1,6 +1,8 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin(
+  './i18n/request.ts'
+);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,7 +11,7 @@ const nextConfig = {
         {
           protocol: 'http',
           hostname: 'localhost',
-          port: '302', 
+          port: '306', 
           pathname: '/imagenes/**', 
         },
       ],
