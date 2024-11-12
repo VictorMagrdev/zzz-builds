@@ -15,6 +15,7 @@
     "@primer/octicons": "^19.11.0",
     "@primer/octicons-react": "^19.11.0",
     "axios": "^1.7.7",
+    "html2canvas-pro": "^1.5.8",
     "js-cookie": "^3.0.5",
     "next": "^14.2.16",
     "next-intl": "^3.23.5",
