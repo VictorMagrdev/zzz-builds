@@ -1,4 +1,4 @@
-const API = "http://localhost:302/api/v1";
+const API = "http://localhost:3000/api/v1";
 
 export const getAllCharacters = async () => {
   const info = await fetch(`${API}/zenless-zone-zero/characters`);

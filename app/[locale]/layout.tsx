@@ -5,6 +5,7 @@ import { bg_blue_60 } from "@/components/tokens";
 import Header from "@/components/molecules/Header";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,17 +18,23 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const message = await getMessages();
 
   return (
     <NextIntlClientProvider messages={message}>
-    <html lang="en">
-      <body className={`${bg_blue_60} ${inter.className}`}>
-        <Header/>
-        {children}
+      <html lang="en">
+        <body className={`${bg_blue_60} ${inter.className} h-screen`}>
+          <div className="flex h-full">
+            <aside className="w-64 bg-blue-900 text-white">
+              <Header />
+            </aside>
+
+            <main className="flex-1 p-4 overflow-auto">
+              {children}
+            </main>
+          </div>
         </body>
-    </html>
+      </html>
     </NextIntlClientProvider>
   );
 }
