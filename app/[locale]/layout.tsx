@@ -25,10 +25,7 @@ export default async function RootLayout({
       <html lang="en">
         <body className={`${bg_blue_60} ${inter.className} h-screen`}>
           <div className="flex h-full">
-            <aside className="w-64 bg-blue-900 text-white">
               <Header />
-            </aside>
-
             <main className="flex-1 p-4 overflow-auto">
               {children}
             </main>
