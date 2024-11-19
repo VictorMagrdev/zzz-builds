@@ -13,7 +13,7 @@ export function Card({ character }: CardProps) {
         <div className="w-full h-[330px] relative">
           <Image
             className="rounded-md transition-transform duration-300 transform hover:scale-105 object-cover"
-            src={`http://localhost:3000/imagenes/personajes/${character.imagen}`}
+            src={`https://zzzbuilds-server.lat/imagenes/personajes/${character.imagen}`}
             alt={character.nombre}
             layout="fill"
           />
