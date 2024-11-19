@@ -54,7 +54,7 @@ export default function Sidebar() {
   const logout = useStore((store) => store.logout);
 
   return (
-    <div>
+    <>
       <button
         aria-controls="separator-sidebar"
         type="button"
@@ -171,7 +171,7 @@ export default function Sidebar() {
       </ul>
    </div>
 </aside>
-    </div>
+</> 
   );
 }
 
