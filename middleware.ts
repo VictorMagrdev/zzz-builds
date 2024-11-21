@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
+import { notFound } from "next/navigation";
 
 const intlMiddleware = createIntlMiddleware({
   locales: ["en", "es"],
@@ -9,19 +10,19 @@ const intlMiddleware = createIntlMiddleware({
 
 export function middleware(request: NextRequest) {
   const intlResponse = intlMiddleware(request);
-  if (intlResponse) {
-    return intlResponse;
+  if (!intlResponse) {
+    return NextResponse.redirect(new URL("/404", request.url));
   }
 
   const currentUser = request.cookies.get("token");
-  const isProfilePage = request.nextUrl.pathname.startsWith("/profile");
+  const isProfilePage = request.nextUrl.pathname.includes("/profile");
   const isPostPage = request.nextUrl.pathname.includes("/post");
 
   if (!currentUser && (isProfilePage || isPostPage)) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  return NextResponse.next();
+  return intlResponse;
 }
 
 export const config = {
