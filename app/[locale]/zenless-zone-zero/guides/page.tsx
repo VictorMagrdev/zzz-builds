@@ -3,6 +3,7 @@ import GuideArticle from "@/components/molecules/GuideArticle";
 import { bg_blue_30 } from "@/components/tokens";
 import { bg_blue_60 } from "@/components/tokens";
 import Filter from "@/components/molecules/Filter";
+import ButtonCreation from "@/components/atoms/button";
 
 export const metadata: Metadata= {
   title: 'Guides',
@@ -43,6 +44,8 @@ export default function Guides() {
               <li><p>Claim x50 Bangboos - Just use the code ...</p></li>
             </ul>
           </aside>
+          <ButtonCreation ruta="http://localhost:3000/es/zenless-zone-zero/guides/post"/>
+
         </main>
       </>
       

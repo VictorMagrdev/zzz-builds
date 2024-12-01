@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { bg_blue_60,bg_blue_30,bg_blue_10 } from '@/components/tokens'
 
 import Link from "next/link";
+import ButtonCreation from "@/components/atoms/button";
 
 
 export const metadata: Metadata= {
@@ -19,7 +20,6 @@ export default function TierList() {
         <input className={` placeholder:text-slate-900 block ${bg_blue_10} border py-2 pl-9 pr-3 rounded-lg size-8 my-8 w-96 mb-2 focus:outline-none sm:text-sm" placeholder="Seach" type="seach" name="seach"`}/>
         </form>
       </div>
-      
       <div className='flex items-stretch'>
       <div className='p-8'>
       <div className="grid grid-cols-4 gap-4 space-x-4 space-y-4">
@@ -130,7 +130,7 @@ export default function TierList() {
         </div>
       </div>
       <div className="place-self-end">
-      <Link href="/zenless-zone-zero/tier-list/post" className={`h-[50px] w-[50px] rounded-full ${bg_blue_10} p-8 m-8 content-center items-center flex justify-center`}>+</Link>
+        <ButtonCreation ruta="http://localhost:3000/es/zenless-zone-zero/tier-list/post"/>
       </div>
       </div>
       </div>

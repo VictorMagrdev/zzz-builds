@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,17 +48,18 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex flex-col space-y-4">
-        <Link href="/zenless-zone-zero/guides" className="text-white hover:text-gray-400 transition-colors">
+      {/* Aplicación de las clases */}
+      <nav className="flex flex-1 flex-col overflow-y-auto p-4 [&>[data-slot=section]+[data-slot=section]]:mt-8">
+        <Link href="/zenless-zone-zero/guides" className="text-white hover:text-gray-400 transition-colors" data-slot="section">
           {t("guides")}
         </Link>
-        <Link href="/zenless-zone-zero/tier-list" className="text-white hover:text-gray-400 transition-colors">
+        <Link href="/zenless-zone-zero/tier-list" className="text-white hover:text-gray-400 transition-colors" data-slot="section">
           {t("tier_list")}
         </Link>
-        <Link href="#" className="text-white hover:text-gray-400 transition-colors">
+        <Link href="#" className="text-white hover:text-gray-400 transition-colors" data-slot="section">
           {t("news")}
         </Link>
-        <Link href="/zenless-zone-zero/characters" className="text-white hover:text-gray-400 transition-colors">
+        <Link href="/zenless-zone-zero/characters" className="text-white hover:text-gray-400 transition-colors" data-slot="section">
           {t("characters")}
         </Link>
       </nav>
@@ -65,7 +67,8 @@ export default function Sidebar() {
       <div className="flex flex-col items-center space-y-4 mt-auto">
         {token !== null ? (
           <>
-            <Link href="/profile" passHref className="flex items-center">
+          <div className="max-lg:hidden flex flex-col border-t border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5">
+          <Link href="/profile" passHref className="flex items-center">
               <Image
                 src={bangboo}
                 width={45}
@@ -74,6 +77,7 @@ export default function Sidebar() {
                 className="h-auto border-2 rounded-full"
               />
             </Link>
+          </div>
             <button
               className={`${bg_blue_10} h-10 px-4 font-semibold rounded-md text-white`}
               onClick={() => {
