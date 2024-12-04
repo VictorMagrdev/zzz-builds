@@ -14,7 +14,7 @@ export default function Guides() {
         <main
         className={`flex flex-col max-w-5xl mx-auto w-full h-screen overflow-y-auto p-4 mt-4 ${bg_blue_30} rounded-lg`}
       >
-        <EditFile/>
+        <NewArticle token={""}/>
       </main>
 
       </>
