@@ -2,19 +2,17 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { getCharacterById } from '@/libs/api_general'
 import CharacterView from '@/components/molecules/CharacterView'
 
-type Params = {
-  slug: string
-}
+type tParams = Promise<{ slug: string }>;
 
 type PageProps = {
-  params: Params
+  params: tParams
 }
 
 export async function generateMetadata(
-  { params }: PageProps,
+  props: PageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await props.params; // Espera que params sea una promesa
   const character = await getCharacterById(parseInt(slug));
   return {
     title: `Character ${character[0].nombre}`,
@@ -22,8 +20,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = params;
+export default async function Page(props: PageProps) {
+  const { slug } = await props.params; // Espera que params sea una promesa
   const character = await getCharacterById(parseInt(slug));
   return <CharacterView character={character} />;
 }
