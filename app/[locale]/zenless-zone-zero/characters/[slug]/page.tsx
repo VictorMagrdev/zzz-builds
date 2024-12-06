@@ -2,7 +2,6 @@ import { Metadata, ResolvingMetadata } from "next";
 import { getCharacterById } from "@/libs/api_general";
 import CharacterView from "@/components/molecules/CharacterView";
 
-// Definimos que `params` es una promesa
 type tParams = Promise<{ slug: string }>;
 
 type PageProps = {
