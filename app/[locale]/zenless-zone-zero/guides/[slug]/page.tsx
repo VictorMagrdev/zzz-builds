@@ -1,18 +1,34 @@
+import { GetStaticProps, GetStaticPaths } from 'next'
 import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
   params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-
   return {
     title: `Guide ${params.slug}`,
-    description: 'esto es una guia',
+    description: "this is a guide",
+  }
+}
+
+// Definir cómo obtener los parámetros estáticos
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [{ params: { slug: 'example' } }],
+    fallback: 'blocking',
+  }
+}
+
+// Obtener los parámetros estáticos
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  return {
+    props: {
+      params: { slug: params?.slug || 'default' }
+    }
   }
 }
 
