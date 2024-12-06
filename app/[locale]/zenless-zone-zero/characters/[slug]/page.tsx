@@ -11,18 +11,16 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { slug } = params; 
-  const character = await getCharacterById(parseInt(slug))
+  const { slug } = params;
+  const character = await getCharacterById(parseInt(slug));
   return {
     title: `Character ${character[0].nombre}`,
     description: `Zenless Zone Zero ${character[0].nombre}`,
-  }
+  };
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params; 
-  const character = await getCharacterById(parseInt(slug))
-  return (
-    <CharacterView character={character} />
-  )
+  const character = await getCharacterById(parseInt(slug));
+  return <CharacterView character={character} />;
 }
