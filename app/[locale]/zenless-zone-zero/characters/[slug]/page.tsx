@@ -1,18 +1,19 @@
-import { Metadata, ResolvingMetadata } from 'next'
-import { getCharacterById } from '@/libs/api_general'
-import CharacterView from '@/components/molecules/CharacterView'
+import { Metadata, ResolvingMetadata } from "next";
+import { getCharacterById } from "@/libs/api_general";
+import CharacterView from "@/components/molecules/CharacterView";
 
+// Definimos que `params` es una promesa
 type tParams = Promise<{ slug: string }>;
 
 type PageProps = {
-  params: tParams
-}
+  params: tParams;
+};
 
 export async function generateMetadata(
   props: PageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { slug } = await props.params; // Espera que params sea una promesa
+  const { slug } = await props.params;
   const character = await getCharacterById(parseInt(slug));
   return {
     title: `Character ${character[0].nombre}`,
@@ -21,7 +22,7 @@ export async function generateMetadata(
 }
 
 export default async function Page(props: PageProps) {
-  const { slug } = await props.params; // Espera que params sea una promesa
+  const { slug } = await props.params;
   const character = await getCharacterById(parseInt(slug));
   return <CharacterView character={character} />;
 }
