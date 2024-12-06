@@ -1,27 +1,24 @@
-import TierListSlug from '@/components/screens/TierListSlug'
-import type { Metadata, ResolvingMetadata } from 'next'
-
-type tParams = Promise<{ slug: string }>;
+import TierListSlug from '@/components/screens/TierListSlug';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 type PageProps = {
-  params: tParams;
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
+  params: { slug: string };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 export async function generateMetadata(
-  props: PageProps,
+  { params, searchParams }: PageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { slug } = await props.params;  
+  const { slug } = await params;
   return {
     title: `Tier list ${slug}`,
     description: "this is a tier list",
   };
 }
 
-export default async function Page(props: PageProps) {
-  const { slug } = await props.params; 
+export default async function Page({ params, searchParams }: PageProps) {
+  const { slug } = await params;
   if (!slug) {
     return (
       <main className="flex items-center justify-center h-screen">
@@ -29,6 +26,10 @@ export default async function Page(props: PageProps) {
       </main>
     );
   }
+
   const tierlistId = parseInt(slug);
+
+  const searchParamsResolved = await searchParams;
+
   return <TierListSlug tierlistId={tierlistId} />;
 }
