@@ -14,8 +14,11 @@ export function Card({ character }: CardProps) {
           <Image
             className="rounded-md transition-transform duration-300 transform hover:scale-105 object-cover"
             src={`https://zzzbuilds-server.lat/imagenes/personajes/${character.imagen}`}
+
             alt={character.nombre}
-            layout="fill"
+            sizes="auto"
+            fill
+            priority
           />
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { StaticImageData } from 'next/image';
 import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
 import { useTranslations } from "next-intl";
-
+import bangboo from "@/assets/images/profile.webp";
 interface ProxyInfoProps {
     imagen: string | StaticImageData;
     username: string;
@@ -16,7 +16,9 @@ export function ProxyInfo ({ imagen, username, nivel, uid }:ProxyInfoProps) {
     return (
         <div className={`flex flex-col ${bg_blue_30} rounded-lg w-96 p-8`}>
         <Image
-            src={`https://zzzbuilds-server.lat/imagenes/usuarios/${imagen}`}
+            src={bangboo}
+
+
             alt={`Avatar of ${username}`}
             width={96}
             height={96}

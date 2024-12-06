@@ -1,0 +1,10 @@
+@import '@styles/_colors';
+
+.editor{
+	border: 7px solid color(primary);
+	border-radius: 20px;
+	overflow: hidden;
+	* {
+		font-family: monospace;
+	}
+}

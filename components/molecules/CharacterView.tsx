@@ -14,6 +14,7 @@ export default function CharacterView({character}:any) {
             </p>
             <Image
               alt={character[0].nombre}
+
               src={`https://zzzbuilds-server.lat/imagenes/personajes/${character[0].imagen}`}
               width={350}
               height={350}

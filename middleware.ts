@@ -1,7 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
-import { notFound } from "next/navigation";
 
 const intlMiddleware = createIntlMiddleware({
   locales: ["en", "es"],
