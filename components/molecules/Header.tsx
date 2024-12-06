@@ -40,8 +40,8 @@ export default function Sidebar() {
     <Link href="/" passHref>
       <Image
         src={zzzLogo}
-        width={135}
-        height={135}
+        width={125}
+        height={125}
         alt="Logo Zenless"
         className="h-auto w-auto"
         priority

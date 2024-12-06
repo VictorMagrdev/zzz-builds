@@ -6,7 +6,7 @@ type CardProps = {
 };
 
 export function TierListCard({ character }: CardProps) {
-    const image = `http://localhost:3000/imagenes/personajes/${character.imagen}`;
+    const image = `http://localhost:3030/imagenes/personajes/${character.imagen}`;
   return (
     <article className="relative flex flex-col h-max rounded-sm border-slate-400 p-4 w-[150px] overflow-hidden">
         <div className="w-full h-[150px] relative">
@@ -14,7 +14,9 @@ export function TierListCard({ character }: CardProps) {
             className="rounded-md transition-transform duration-300 transform hover:scale-105 object-cover"
             src={image}
             alt={character.nombre}
-            layout="fill"
+            fill
+            priority
+            sizes="auto"
           />
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">

@@ -13,13 +13,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/404", request.url));
   }
 
-  // const currentUser = request.cookies.get("token");
-  // const isProfilePage = request.nextUrl.pathname.includes("/profile");
-  // const isPostPage = request.nextUrl.pathname.includes("/post");
+  const currentUser = request.cookies.get("token");
+  const isProfilePage = request.nextUrl.pathname.includes("/profile");
+  const isPostPage = request.nextUrl.pathname.includes("/post");
 
-  // if (!currentUser && (isProfilePage || isPostPage)) {
-  //   return NextResponse.redirect(new URL("/login", request.url));
-  // }
+  if (!currentUser && (isProfilePage || isPostPage)) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
 
   return intlResponse;
 }

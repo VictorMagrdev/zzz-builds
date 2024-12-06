@@ -89,15 +89,6 @@ export default function LoginForm() {
                     )}
             </div>
 
-            <label className='text-white my-1 text-xs' htmlFor="rememberme">
-                <div>
-                    <span>{t("remember_me")}</span>
-                    <input
-                        type="checkbox"
-                        {...register('remember')}
-                    />
-                </div>
-            </label>
 
             <button className='text-white' type="submit" disabled={loading}>
                 {loading ? t("loading_message") : t("login_button")}

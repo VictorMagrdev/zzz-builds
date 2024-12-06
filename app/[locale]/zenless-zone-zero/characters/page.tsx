@@ -21,7 +21,7 @@ export default function Characters() {
 
   return (
     <>
-      <main className='w-full max-w-screen-xl mx-auto flex flex-wrap mt-10 gap-5 justify-evenly'>
+      <main className="w-full max-w-screen-xl mx-auto flex flex-wrap mt-10 gap-5 justify-center sm:justify-start lg:justify-evenly px-4 sm:px-6 lg:px-8">
         {characters.map((prod, index) => (
           <Card 
             key={prod.id}
@@ -29,6 +29,7 @@ export default function Characters() {
           />
         ))}
       </main>
+
     </>
   );
 }

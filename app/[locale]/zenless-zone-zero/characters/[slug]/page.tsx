@@ -12,7 +12,8 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const character = await getCharacterById(parseInt(params.slug))
+  const { slug } = await params;
+  const character = await getCharacterById(parseInt(slug))
   return {
     title: `Character ${character[0].nombre}`,
     description: `Zenless Zone Zero ${character[0].nombre}`,
@@ -20,7 +21,8 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const character = await getCharacterById(parseInt(params.slug))
+  const { slug } = await params;
+  const character = await getCharacterById(parseInt(slug))
   return (
     <CharacterView character={character} />
   )

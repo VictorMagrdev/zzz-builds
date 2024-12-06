@@ -4,10 +4,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import html2canvas from "html2canvas-pro";
 import { ReactSortable } from "react-sortablejs";
 import { bg_blue_30, bg_blue_10 } from "../tokens";
-import { getAllCharacters, getUserProfile } from "@/libs/api_general";
+import { getAllCharacters, getUserProfile, tierListPost } from "@/libs/api_general";
 import { Character } from "@/types/api-general";
 import { TierListCard } from "../organisms/tier-list-card";
 import useStore from "@/store/useStore";
+import { useRouter } from "next/navigation";
 
 interface TierColumn {
   label: string;
@@ -20,7 +21,7 @@ interface Columns {
 }
 
 interface FormValues {
-  name: string; // Campo del formulario para el nombre de la tier list
+  name: string;
 }
 
 const tierColumns: Columns = {
@@ -36,19 +37,23 @@ export default function TableTierPost() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(true);
   const captureRef = useRef<HTMLDivElement>(null);
+  const token = useStore((store) => store.token);
   const [profile, setProfile]:any = useState(null);
   const { register, handleSubmit } = useForm<FormValues>();
-  const token = useStore((store) => store.token);
-  
+  const router = useRouter()
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-          let data = await getUserProfile(token);
-          setProfile(data);
-      } catch (error) {
-          console.error("Failed to fetch profile:", error);
-      }
-  };
+    if (token) {
+        const fetchProfile = async () => {
+          try {
+              let data = await getUserProfile(token);
+              setProfile(data.username);
+          } catch (error) {
+              console.error("Failed to fetch profile:", error);
+          }
+      };
+      fetchProfile()
+
+    }
     getAllCharacters()
       .then((data: Character[]) => {
         setCharacters(data);
@@ -60,7 +65,6 @@ export default function TableTierPost() {
       });
   }, [token]);
 
-  // Función para capturar la imagen
   const captureImage: SubmitHandler<FormValues> = async (data) => {
     if (captureRef.current) {
       const canvas = await html2canvas(captureRef.current);
@@ -71,23 +75,11 @@ export default function TableTierPost() {
   
       const formData = new FormData();
       formData.append("image", imageBlob, `${data.name || "tierlist"}.png`);
-      formData.append("name", data.name);
-      formData.append("usuario", profile.user);
-  
-      try {
-        const response = await fetch("TU_ENDPOINT", {
-          method: "POST",
-          body: formData,
-        });
-  
-        if (response.ok) {
-          const result = await response.json();
-          console.log("Tier list creada con éxito", result);
-        } else {
-          console.error("Error al crear tier list:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Error al realizar la petición:", error);
+      formData.append("nombre", data.name);
+      formData.append("usuario", profile.username);
+      const postStatus = await tierListPost(formData,token);
+      if (postStatus == 201) {
+        router.push('/zenless-zone-zero/tier-list');
       }
     }
   };

@@ -12,7 +12,7 @@ export default function ButtonCreation({ruta}:creationLink ) {
 
   const token = useStore((store) => store.token);
     return (
-    <>{token == null ? 
+    <>{token != null ? 
         (
           <Link
           href={`${ruta}`}
