@@ -23,10 +23,9 @@
     "clsx": "^2.1.1",
     "html2canvas-pro": "^1.5.8",
     "js-cookie": "^3.0.5",
-
     "lexical": "^0.20.0",
     "lucide-react": "^0.465.0",
-
+    "monaco-latex": "^0.0.1",
     "next": "^15.0.3",
     "next-intl": "^3.23.5",
     "prettier": "^3.3.3",
@@ -36,16 +35,13 @@
     "react-hook-form": "^7.53.0",
     "react-markdown": "^9.0.1",
     "react-sortablejs": "^6.1.4",
-
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",
     "shared": "^0.2.0",
-    "y-websocket": "^2.0.4",
-    "yjs": "^13.6.20",
-
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-
+    "y-websocket": "^2.0.4",
+    "yjs": "^13.6.20",
     "zod": "^3.23.8",
     "zustand": "^5.0.0-rc.2"
   },
