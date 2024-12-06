@@ -1,6 +1,6 @@
 'use client'
 import { bg_blue_60,bg_blue_30 } from '@/components/tokens'
-import { ProxyInfo } from "@/components";
+import  {ProxyInfo}  from "@/components/molecules/ProxyInfo";
 import { getUserProfile } from "@/libs/api_general";
 import useStore from '@/store/useStore';
 import { useEffect, useState } from 'react';
