@@ -47,7 +47,7 @@ export default function Guides() {
               </ul>
             </aside>
 
-            <ButtonCreation ruta="http://localhost:3030/es/zenless-zone-zero/guides/post" />
+            <ButtonCreation ruta="/zenless-zone-zero/guides/post" />
           </main>
 
       </>
