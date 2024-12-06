@@ -14,7 +14,8 @@ export default function CharacterView({character}:any) {
             </p>
             <Image
               alt={character[0].nombre}
-              src={`http://localhost:3030/imagenes/personajes/${character[0].imagen}`}
+
+              src={`https://zzzbuilds-server.lat/imagenes/personajes/${character[0].imagen}`}
               width={350}
               height={350}
               className="border-solid border-2 rounded-md bg-blue-900"

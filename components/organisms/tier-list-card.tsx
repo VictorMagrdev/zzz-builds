@@ -6,7 +6,9 @@ type CardProps = {
 };
 
 export function TierListCard({ character }: CardProps) {
-    const image = `http://localhost:3030/imagenes/personajes/${character.imagen}`;
+
+    const image = `https://zzzbuilds-server.lat/imagenes/personajes/${character.imagen}`;
+
   return (
     <article className="relative flex flex-col h-max rounded-sm border-slate-400 p-4 w-[150px] overflow-hidden">
         <div className="w-full h-[150px] relative">

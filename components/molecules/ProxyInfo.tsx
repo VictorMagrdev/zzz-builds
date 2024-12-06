@@ -17,6 +17,8 @@ export function ProxyInfo ({ imagen, username, nivel, uid }:ProxyInfoProps) {
         <div className={`flex flex-col ${bg_blue_30} rounded-lg w-96 p-8`}>
         <Image
             src={bangboo}
+
+
             alt={`Avatar of ${username}`}
             width={96}
             height={96}

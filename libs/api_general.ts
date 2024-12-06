@@ -1,4 +1,6 @@
-const API = "http://localhost:3030/api/v1";
+
+const API = "https://zzzbuilds-server.lat/api/v1";
+
 
 export const getAllCharacters = async () => {
   const info = await fetch(`${API}/zenless-zone-zero/characters`);
