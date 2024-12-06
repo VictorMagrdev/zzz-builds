@@ -39,7 +39,7 @@ export default function TierList() {
       
       </div>
       <div className="place-self-end">
-        <ButtonCreation ruta="http://localhost:3030/es/zenless-zone-zero/tier-list/post"/>
+        <ButtonCreation ruta="/zenless-zone-zero/tier-list/post"/>
       </div>
       </div>
     );
